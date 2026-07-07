@@ -116,6 +116,8 @@ blockquote {
   color: var(--tag-text);
   padding: 5px 9px;
   display: inline-block;
+  border: 1px solid var(--rule-light);
+  border-radius: 3px;
 }
 
 /* Links */
