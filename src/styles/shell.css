@@ -142,24 +142,17 @@
 
   .col-work,
   .col-projects {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-top: var(--sp-3xl) !important;
+    padding-bottom: 0 !important;
   }
 
-  .col .stickyhead {
+  .col-identity .stickyhead {
     position: static !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
   }
 
   .col .scrollfade,
   .scrollcue {
     display: none !important;
-  }
-
-  .col .pad {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
   }
 
   .mbreak {

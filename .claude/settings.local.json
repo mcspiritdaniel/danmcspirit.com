@@ -4,7 +4,11 @@
       "Bash(npm create *)",
       "Bash(git init *)",
       "Bash(npm install *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(find ~ -type d -name \"*SPCX*\" -o -name \"*spcx*\" 2>/dev/null | head -20)",
+      "Bash(find ~ -type f -name \"*SPCX*\" -o -name \"*spcx*\" 2>/dev/null | grep -v node_modules | head -20)"
     ]
   }
 }

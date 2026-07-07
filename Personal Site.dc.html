@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;}
+  .col{scrollbar-width:none;-ms-overflow-style:none;}
+  .col::-webkit-scrollbar{width:0;height:0;display:none;}
+  .lnk{color:#23426A;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s;}
+  .lnk:hover{border-color:#23426A;}
+  .pcard{transition:transform .2s ease;}
+  .mbreak{display:none;}
+  @media (max-width:1200px){
+    #shell .mbreak{display:inline;}
+    #shell{flex-direction:column!important;min-width:0!important;height:auto!important;overflow:visible!important;}
+    #shell > .col{width:100%!important;flex:none!important;height:auto!important;overflow:visible!important;border-right:none!important;border-bottom:1px solid #DCD3C2;padding-left:max(24px,calc((100% - 680px)/2))!important;padding-right:max(24px,calc((100% - 680px)/2))!important;}
+    #shell > aside.col{padding-top:28px!important;padding-bottom:0!important;}
+    #shell .stickyhead{position:static!important;padding-left:0!important;padding-right:0!important;}
+    #shell .scrollfade,#shell .scrollcue{display:none!important;}
+    #shell .pad{padding-left:0!important;padding-right:0!important;}
+    #shell .pcard{flex-direction:column!important;}
+    #shell .pcard > div{flex:none!important;width:100%!important;min-width:0!important;}
+    #shell h1{font-size:32px!important;}
+  }
+</style>
+</helmet>
+
+<div id="shell" style="display:flex;height:100vh;min-width:1362px;overflow:hidden;background:#EDE7D9;font-family:'IBM Plex Sans',sans-serif;color:#1B2330;">
+
+  <!-- ============ LEFT · IDENTITY ============ -->
+  <aside class="col" style="flex:none;width:600px;height:100vh;overflow-y:auto;background:#EDE7D9;border-right:1px solid #DCD3C2;padding:40px 40px 0;">
+
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:30px;">
+      <div style="font-family:'Newsreader',serif;font-size:21px;font-weight:500;letter-spacing:-0.01em;">Dan McSpirit</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;color:#8A8273;">Denver, Colorado</div>
+    </div>
+
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#23426A;margin-bottom:18px;">Advisor | Builder | Teacher</div>
+
+    <h1 style="margin:0 0 26px;font-family:'Newsreader',serif;font-weight:400;font-size:40px;line-height:1.04;letter-spacing:-0.02em;">Closing the gap. <br class="mbreak">Creating value.</h1>
+
+    <div style="display:flex;height:260px;border:1px solid #DCD3C2;border-radius:4px;overflow:hidden;background:#EDE7D9;margin-bottom:30px;">
+      <div style="position:relative;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:24px 18px 24px 22px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#23426A;margin-bottom:9px;">Principal</div>
+        <div style="font-family:'Newsreader',serif;font-size:19px;line-height:1.18;color:#1B2330;">Otherwhere Capital</div>
+      </div>
+      <div style="position:relative;flex:0 0 58%;background:url('assets/portrait-sketch.png') center top / cover no-repeat;">
+        <div style="position:absolute;inset:0;background:linear-gradient(90deg,#EDE7D9 0%,rgba(237,231,217,0) 27%);"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:72px;background:linear-gradient(to bottom,rgba(237,231,217,0) 0%,#EDE7D9 100%);"></div>
+      </div>
+    </div>
+
+    <p style="margin:0 0 16px;font-family:'Newsreader',serif;font-size:17px;line-height:1.6;color:#3B362B;">The space between where a company is and where it could be is where value gets created, or lost. That's the work. I partner with early-stage founders on financial architecture and capital strategy, manage my own investments, and build the analytical tools to support both. It's also what drew me to substitute teaching in the Denver Public Schools.</p>
+    <p style="margin:0 0 28px;font-family:'Newsreader',serif;font-size:17px;line-height:1.6;color:#3B362B;">I build when the right tool doesn't exist. Scalable solutions start with what's already available; I build only when there's a gap worth closing.</p>
+
+    <div style="height:1px;background:#DCD3C2;margin:4px 0 26px;"></div>
+
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#A39A88;margin-bottom:14px;">Hard-won truth</div>
+    <blockquote style="margin:0 0 12px;font-family:'Newsreader',serif;font-style:italic;font-size:24px;line-height:1.28;letter-spacing:-0.01em;color:#1B2330;">"Finance golden rule: You can't get somethin' for nothin'."</blockquote>
+    <p style="margin:0 0 30px;font-size:13.5px;line-height:1.55;color:#5C5648;">Risk and return are inextricably linked; if you can't see the risk, you haven't looked hard enough.</p>
+
+    <div style="height:1px;background:#DCD3C2;margin:0 0 24px;"></div>
+
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#A39A88;margin-bottom:12px;">Contact</div>
+    <a href="mailto:mcspiritdaniel@gmail.com" class="lnk" style="font-family:'Newsreader',serif;font-size:20px;letter-spacing:-0.01em;display:inline-block;margin-bottom:14px;">mcspiritdaniel@gmail.com</a>
+    <div style="display:flex;gap:16px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;">
+      <a href="https://linkedin.com/in/danmcspirit" target="_blank" class="lnk">LinkedIn ↗</a>
+      <span style="color:#A39A88;">© 2026</span>
+    </div>
+
+    <div style="height:46px;"></div>
+    <div class="scrollfade" style="position:sticky;bottom:0;height:52px;margin-top:-52px;background:linear-gradient(to bottom,rgba(237,231,217,0) 0%,#EDE7D9 90%);pointer-events:none;z-index:6;"></div>
+  </aside>
+
+  <!-- ============ MIDDLE · WORK (independent scroll) ============ -->
+  <section class="col" style="flex:none;width:362px;height:100vh;overflow-y:auto;background:#F4F0E7;border-right:1px solid #DCD3C2;">
+
+    <div class="stickyhead" style="position:sticky;top:0;z-index:5;background:#F4F0E7;border-bottom:1px solid #DCD3C2;padding:24px 34px 18px;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#1B2330;">Work</span>
+        <span class="scrollcue" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#B3A88F;">scroll ↓</span>
+      </div>
+      <p style="margin:0;font-family:'Newsreader',serif;font-size:16px;line-height:1.5;color:#5C5648;font-style:italic;">The thread through every role: a pull toward steep learning curves — and a habit of leading the climb.</p>
+    </div>
+
+    <div class="pad" style="padding:30px 34px 48px;">
+
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#23426A;margin-bottom:16px;">Advisory &amp; investing</div>
+
+      <div style="padding-bottom:24px;margin-bottom:24px;border-bottom:1px solid #E2DACA;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#23426A;margin-bottom:6px;">2019 — Present</div>
+        <div style="font-family:'Newsreader',serif;font-size:21px;line-height:1.15;margin-bottom:8px;">Otherwhere Capital</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#736E62;margin-bottom:7px;">Principal | Private Capital Advisory</div>
+        <div style="font-size:12.5px;line-height:1.55;color:#7A7468;">Partner with founders as a strategic CFO — financial architecture, capitalization strategy, and the models and valuation analyses that steer growth — while actively investing in public and private entities. Earlier in this chapter, co-founded a manufacturing operation.</div>
+      </div>
+
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#A39A88;margin-bottom:16px;">Capital markets</div>
+
+      <div style="padding-bottom:22px;margin-bottom:22px;border-bottom:1px solid #E2DACA;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#A39A88;margin-bottom:6px;">2004 — 2019</div>
+        <div style="font-family:'Newsreader',serif;font-size:20px;line-height:1.15;margin-bottom:7px;">BMO Capital Markets</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#736E62;margin-bottom:7px;">Director | Institutional Equity Research</div>
+        <div style="font-size:12.5px;line-height:1.55;color:#7A7468;">Provided institutional-grade valuation and investment analysis for a portfolio of publicly traded companies, advising global asset managers on capital allocation.</div>
+      </div>
+
+      <div style="padding-bottom:30px;margin-bottom:30px;border-bottom:1px solid #DCD3C2;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#A39A88;margin-bottom:6px;">1996 — 2004</div>
+        <div style="font-family:'Newsreader',serif;font-size:20px;line-height:1.15;margin-bottom:7px;">First Albany Corporation</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#736E62;margin-bottom:7px;">Senior Associate | Investment Banking &amp; Analyst | CFO Office</div>
+        <div style="font-size:12.5px;line-height:1.55;color:#7A7468;">Executed middle-market transactions, including debt and equity capital raises and M&A&D mandates, and supported firm-wide financial strategy.</div>
+      </div>
+
+      <!-- Teaching, given real space -->
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#23426A;margin-bottom:14px;">In the classroom</div>
+      <div style="background:#EDE7D9;border:1px solid #DCD3C2;border-radius:3px;padding:20px;margin-bottom:34px;">
+        <div style="font-family:'Newsreader',serif;font-size:20px;line-height:1.2;margin-bottom:9px;">Denver Public Schools</div>
+        <div style="font-size:13.5px;line-height:1.6;color:#5C5648;">Currently a Guest Teacher in the DPS system. Teaching pulls on the same instinct as the work: take something complex, find the first principle, and make it usable. The most honest test of whether you understand an idea is whether you can hand it to someone else.</div>
+      </div>
+
+      <!-- Education -->
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#A39A88;margin-bottom:14px;">Education &amp; credentials</div>
+      <div style="display:flex;flex-direction:column;gap:11px;font-size:13.5px;line-height:1.4;color:#3B362B;">
+        <div style="display:flex;gap:10px;"><span style="color:#23426A;font-family:'IBM Plex Mono',monospace;font-size:11px;padding-top:2px;">—</span><span>The Wharton School (WMP21)</span></div>
+        <div style="display:flex;gap:10px;"><span style="color:#23426A;font-family:'IBM Plex Mono',monospace;font-size:11px;padding-top:2px;">—</span><span>CFA Charter</span></div>
+        <div style="display:flex;gap:10px;"><span style="color:#23426A;font-family:'IBM Plex Mono',monospace;font-size:11px;padding-top:2px;">—</span><span>CMA Certificate</span></div>
+        <div style="display:flex;gap:10px;"><span style="color:#23426A;font-family:'IBM Plex Mono',monospace;font-size:11px;padding-top:2px;">—</span><span>FSA Credential</span></div>
+      </div>
+
+    </div>
+    <div style="height:46px;"></div>
+    <div class="scrollfade" style="position:sticky;bottom:0;height:52px;margin-top:-52px;background:linear-gradient(to bottom,rgba(244,240,231,0) 0%,#F4F0E7 90%);pointer-events:none;z-index:6;"></div>
+  </section>
+
+  <!-- ============ RIGHT · PROJECTS (independent scroll) ============ -->
+  <section class="col" style="flex:1;min-width:440px;height:100vh;overflow-y:auto;background:#FBFAF6;">
+
+    <div class="stickyhead" style="position:sticky;top:0;z-index:5;background:#FBFAF6;border-bottom:1px solid #E8E1D2;padding:24px 48px 20px;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#1B2330;">Projects</span>
+        <div style="display:flex;gap:14px;align-items:baseline;">
+          <span class="scrollcue" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#B3A88F;">scroll ↓</span>
+        </div>
+      </div>
+      <p style="margin:0;font-family:'Newsreader',serif;font-size:16px;line-height:1.5;color:#5C5648;max-width:60ch;font-style:italic;">Turning the conventional — the Excel model, the desk calculator — into modern, action-oriented apps.</p>
+    </div>
+
+    <div class="pad" style="padding:40px 48px 56px;max-width:1240px;">
+
+      <!-- SPACEX -->
+      <div class="pcard" style="color:inherit;display:flex;flex-wrap:wrap;gap:34px;align-items:flex-start;margin-bottom:52px;">
+        <div style="flex:1 1 270px;min-width:240px;padding-top:2px;">
+          <div style="font-family:'Newsreader',serif;font-size:26px;line-height:1.12;letter-spacing:-0.01em;margin-bottom:9px;">SpaceX (SPCX) Valuation Analysis</div>
+          <a href="https://spcx-valuation-analysis.vercel.app/" target="_blank" class="lnk" style="font-family:'IBM Plex Mono',monospace;font-size:12px;display:inline-block;margin-bottom:14px;">view ↗</a>
+          <p style="margin:0 0 16px;font-size:14.5px;line-height:1.6;color:#5C5648;">SpaceX defies a single valuation line. This sum-of-the-parts framework breaks the business into its constituent segments and lets you stress-test the assumptions that drive the range — rebuilt from Excel into an interactive app you can actually argue with.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6E675B;border:1px solid #DCD3C2;padding:5px 9px;border-radius:2px;">ms excel</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6E675B;border:1px solid #DCD3C2;padding:5px 9px;border-radius:2px;">claude chat + design + code</span>
+          </div>
+        </div>
+        <div style="flex:2 1 420px;min-width:330px;">
+          <div style="position:relative;width:100%;border:1px solid #E8E1D2;border-radius:5px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.05);">
+            <div style="display:flex;align-items:center;gap:7px;height:34px;padding:0 13px;background:#F2EFE8;border-bottom:1px solid #E8E1D2;">
+              <span style="width:9px;height:9px;border-radius:50%;background:#DAD3C5;"></span>
+              <span style="width:9px;height:9px;border-radius:50%;background:#DAD3C5;"></span>
+              <span style="width:9px;height:9px;border-radius:50%;background:#DAD3C5;"></span>
+              <span style="margin-left:7px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8A8273;letter-spacing:0.02em;">spcx-valuation-analysis.vercel.app</span>
+            </div>
+            <div style="position:relative;width:100%;height:300px;overflow:hidden;background:#fff;">
+              <iframe src="https://spcx-valuation-analysis.vercel.app/" loading="lazy" scrolling="no" tabindex="-1" title="SpaceX Valuation Analysis live preview" style="position:absolute;top:0;left:0;border:0;width:200%;height:600px;transform:scale(0.5);transform-origin:top left;pointer-events:none;"></iframe>
+              <a href="https://spcx-valuation-analysis.vercel.app/" target="_blank" rel="noopener" aria-label="Open SpaceX Valuation Analysis" style="position:absolute;inset:0;z-index:2;"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- subin (removed pre-launch — re-add as live-preview card when joinsubin.org ships) -->
+
+      <!-- LINEA -->
+      <div class="pcard" style="color:inherit;display:flex;flex-wrap:wrap;gap:34px;align-items:flex-start;margin-bottom:52px;">
+        <div style="flex:1 1 270px;min-width:240px;padding-top:2px;">
+          <div style="font-family:'Newsreader',serif;font-size:26px;line-height:1.12;letter-spacing:-0.01em;margin-bottom:9px;">LINEA Valuation Analysis</div>
+          <a href="https://linea-valuation-analysis.vercel.app/" target="_blank" class="lnk" style="font-family:'IBM Plex Mono',monospace;font-size:12px;display:inline-block;margin-bottom:14px;">view ↗</a>
+          <p style="margin:0 0 16px;font-size:14.5px;line-height:1.6;color:#5C5648;">A DCF and fee-multiple framework for the Linea blockchain protocol — the kind of model that usually lives buried in a spreadsheet, rebuilt as an interactive tool you can actually steer.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6E675B;border:1px solid #DCD3C2;padding:5px 9px;border-radius:2px;">ms excel</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6E675B;border:1px solid #DCD3C2;padding:5px 9px;border-radius:2px;">claude chat + cursor</span>
+          </div>
+        </div>
+        <div style="flex:2 1 420px;min-width:330px;">
+          <div style="position:relative;width:100%;border:1px solid #E8E1D2;border-radius:5px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.05);">
+            <div style="display:flex;align-items:center;gap:7px;height:34px;padding:0 13px;background:#F2EFE8;border-bottom:1px solid #E8E1D2;">
+              <span style="width:9px;height:9px;border-radius:50%;background:#DAD3C5;"></span>
+              <span style="width:9px;height:9px;border-radius:50%;background:#DAD3C5;"></span>
+              <span style="width:9px;height:9px;border-radius:50%;background:#DAD3C5;"></span>
+              <span style="margin-left:7px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8A8273;letter-spacing:0.02em;">linea-valuation-analysis.vercel.app</span>
+            </div>
+            <div style="position:relative;width:100%;height:300px;overflow:hidden;background:#fff;">
+              <iframe src="https://linea-valuation-analysis.vercel.app/" loading="lazy" scrolling="no" tabindex="-1" title="LINEA live preview" style="position:absolute;top:0;left:0;border:0;width:200%;height:600px;transform:scale(0.5);transform-origin:top left;pointer-events:none;"></iframe>
+              <a href="https://linea-valuation-analysis.vercel.app/" target="_blank" rel="noopener" aria-label="Open LINEA Valuation Analysis" style="position:absolute;inset:0;z-index:2;"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RPN -->
+      <div class="pcard" style="color:inherit;display:flex;flex-wrap:wrap;gap:34px;align-items:flex-start;margin-bottom:8px;">
+        <div style="flex:1 1 270px;min-width:240px;padding-top:2px;">
+          <div style="font-family:'Newsreader',serif;font-size:26px;line-height:1.12;letter-spacing:-0.01em;margin-bottom:9px;">RPN Financial Calculator</div>
+          <a href="https://rpn-financial-calculator.vercel.app/" target="_blank" class="lnk" style="font-family:'IBM Plex Mono',monospace;font-size:12px;display:inline-block;margin-bottom:14px;">view ↗</a>
+          <p style="margin:0 0 16px;font-size:14.5px;line-height:1.6;color:#5C5648;">A browser-based replica of the HP 12c RPN financial calculator — the desk classic a generation of analysts learned on, including yours truly, faithfully rebuilt for the web.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6E675B;border:1px solid #DCD3C2;padding:5px 9px;border-radius:2px;">hp 12c</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6E675B;border:1px solid #DCD3C2;padding:5px 9px;border-radius:2px;">claude chat + cursor</span>
+          </div>
+        </div>
+        <div style="flex:2 1 420px;min-width:330px;">
+          <div style="position:relative;width:100%;border:1px solid #E8E1D2;border-radius:5px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.05);">
+            <div style="display:flex;align-items:center;gap:7px;height:34px;padding:0 13px;background:#F2EFE8;border-bottom:1px solid #E8E1D2;">
+              <span style="width:9px;height:9px;border-radius:50%;background:#DAD3C5;"></span>
+              <span style="width:9px;height:9px;border-radius:50%;background:#DAD3C5;"></span>
+              <span style="width:9px;height:9px;border-radius:50%;background:#DAD3C5;"></span>
+              <span style="margin-left:7px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8A8273;letter-spacing:0.02em;">rpn-financial-calculator.vercel.app</span>
+            </div>
+            <div style="position:relative;width:100%;height:300px;overflow:hidden;background:#fff;">
+              <iframe src="https://rpn-financial-calculator.vercel.app/" loading="lazy" scrolling="no" tabindex="-1" title="RPN calculator live preview" style="position:absolute;top:0;left:0;border:0;width:200%;height:600px;transform:scale(0.5);transform-origin:top left;pointer-events:none;"></iframe>
+              <a href="https://rpn-financial-calculator.vercel.app/" target="_blank" rel="noopener" aria-label="Open RPN Financial Calculator" style="position:absolute;inset:0;z-index:2;"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="height:46px;"></div>
+    <div class="scrollfade" style="position:sticky;bottom:0;height:56px;margin-top:-56px;background:linear-gradient(to bottom,rgba(251,250,246,0) 0%,#FBFAF6 90%);pointer-events:none;z-index:6;"></div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
