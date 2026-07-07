@@ -1,0 +1,344 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Dan McSpirit">
+  <div id="shell">
+    <!-- IDENTITY COLUMN -->
+    <aside class="col col-identity">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 30px;">
+        <div class="name">Dan McSpirit</div>
+        <div class="metadata">Denver, Colorado</div>
+      </div>
+
+      <div class="section-label" style="margin-bottom: 18px;">Advisor | Builder | Teacher</div>
+
+      <h1 style="margin-bottom: 26px;">
+        Closing the gap.<br class="mbreak" />
+        Creating value.
+      </h1>
+
+      <!-- Portrait Card -->
+      <div style="display: flex; height: 260px; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; background: var(--paper-dark); margin-bottom: 30px;">
+        <div
+          style="position: relative; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px 18px 24px 22px;"
+        >
+          <div class="caption" style="margin-bottom: 9px;">Principal</div>
+          <div style="font-family: var(--font-serif); font-size: 19px; line-height: 1.18; color: var(--ink);">
+            Otherwhere Capital
+          </div>
+        </div>
+        <div
+          style="position: relative; flex: 0 0 58%; background: url('/portrait-sketch.png') center top / cover no-repeat;"
+        >
+          <div
+            style="position: absolute; inset: 0; background: linear-gradient(90deg, var(--paper-dark) 0%, rgba(237, 231, 217, 0) 27%);"
+          ></div>
+          <div
+            style="position: absolute; bottom: 0; left: 0; right: 0; height: 72px; background: linear-gradient(to bottom, rgba(237, 231, 217, 0) 0%, var(--paper-dark) 100%);"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Body Prose -->
+      <p style="margin-bottom: 16px;">
+        The space between where a company is and where it could be is where value gets created, or lost. That's the work.
+        I partner with early-stage founders on financial architecture and capital strategy, manage my own investments, and
+        build the analytical tools to support both. It's also what drew me to substitute teaching in the Denver Public
+        Schools.
+      </p>
+      <p style="margin-bottom: 28px;">
+        I build when the right tool doesn't exist. Scalable solutions start with what's already available; I build only
+        when there's a gap worth closing.
+      </p>
+
+      <div class="divider"></div>
+
+      <!-- Hard-won Truth -->
+      <div class="section-label muted" style="margin-bottom: 14px;">Hard-won truth</div>
+      <blockquote style="margin-bottom: 12px;">
+        "Finance golden rule: You can't get somethin' for nothin'."
+      </blockquote>
+      <p class="body-sm" style="margin-bottom: 30px;">
+        Risk and return are inextricably linked; if you can't see the risk, you haven't looked hard enough.
+      </p>
+
+      <div style="height: 1px; background: var(--rule); margin: 0 0 24px;"></div>
+
+      <!-- Contact -->
+      <div class="section-label muted" style="margin-bottom: 12px;">Contact</div>
+      <a href="mailto:mcspiritdaniel@gmail.com" class="lnk" style="display: inline-block; margin-bottom: 14px;">
+        mcspiritdaniel@gmail.com
+      </a>
+      <div style="display: flex; gap: 16px; align-items: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;">
+        <a href="https://linkedin.com/in/danmcspirit" target="_blank" class="lnk" style="font-size: 11px;">
+          LinkedIn ↗
+        </a>
+        <span style="color: var(--faint);">© 2026</span>
+      </div>
+
+      <div style="height: 46px;"></div>
+      <div class="scrollfade"></div>
+    </aside>
+
+    <!-- WORK COLUMN -->
+    <section class="col col-work">
+      <div class="stickyhead">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
+          <span class="col-header-label">Work</span>
+          <span class="scrollcue">scroll ↓</span>
+        </div>
+        <p class="subtitle">
+          The thread through every role: a pull toward steep learning curves and a habit of leading the climb.
+        </p>
+      </div>
+
+      <div class="pad">
+        <!-- Advisory & Investing Section -->
+        <div class="section-label" style="margin-bottom: 16px;">Advisory & Investing</div>
+
+        <!-- Otherwhere Capital Entry -->
+        <div style="padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid #E2DACA;">
+          <div class="work-date" style="margin-bottom: 4px;">2019 — Present</div>
+          <h2 class="work-title" style="margin-bottom: 4px;">Otherwhere Capital</h2>
+          <div class="work-role" style="margin-bottom: 8px;">Principal | Private Capital Advisory</div>
+          <div class="body-sm">
+            Partner with founders as a strategic CFO — financial architecture, capitalization strategy, and the models and valuation analyses that steer growth — while actively investing in public and private entities. Earlier in this chapter, co-founded a manufacturing operation.
+          </div>
+        </div>
+
+        <!-- Capital Markets Section -->
+        <div class="section-label muted" style="margin-bottom: 16px;">Capital Markets</div>
+
+        <!-- BMO Capital Markets Entry -->
+        <div style="padding-bottom: 24px; margin-bottom: 22px; border-bottom: 1px solid #E2DACA;">
+          <div class="work-date muted" style="margin-bottom: 4px;">2004 — 2019</div>
+          <h2 class="work-title" style="margin-bottom: 4px;">BMO Capital Markets</h2>
+          <div class="work-role" style="margin-bottom: 8px;">Director | Institutional Equity Research</div>
+          <div class="body-sm">
+            Provided institutional-grade valuation and investment analysis for a portfolio of publicly traded companies, advising global asset managers on capital allocation.
+          </div>
+        </div>
+
+        <!-- First Albany Entry -->
+        <div style="padding-bottom: 24px; margin-bottom: 30px; border-bottom: 1px solid var(--rule);">
+          <div class="work-date muted" style="margin-bottom: 4px;">1996 — 2004</div>
+          <h2 class="work-title" style="margin-bottom: 4px;">First Albany Corporation</h2>
+          <div class="work-role" style="margin-bottom: 8px;">Senior Associate | Investment Banking & Analyst | CFO Office</div>
+          <div class="body-sm">Executed middle-market transactions, including debt and equity capital raises and M&A&D mandates, and supported firm-wide financial strategy.</div>
+        </div>
+
+        <!-- In the Classroom Section -->
+        <div class="section-label" style="margin-bottom: 16px;">In the Classroom</div>
+
+        <div style="background: var(--paper-dark); border: 1px solid var(--rule); border-radius: 3px; padding: 20px; margin-bottom: 34px;">
+          <h3 class="work-title" style="margin-bottom: 8px;">Denver Public Schools</h3>
+          <p class="body-sm">
+            Currently a Guest Teacher in the DPS system. Teaching pulls on the same instinct as the work: take something complex, find the first principle, and make it usable. The most honest test of whether you understand an idea is whether you can hand it to someone else.
+          </p>
+        </div>
+
+        <!-- Education Section -->
+        <div class="section-label muted" style="margin-bottom: 11px;">Education & Credentials</div>
+
+        <div style="display: flex; flex-direction: column; gap: 11px; margin-bottom: 46px;">
+          <div class="body-sm">
+            <span style="font-family: var(--font-mono); color: var(--navy); padding-top: 2px; display: inline-block; width: 11px;">
+              —
+            </span>
+            The Wharton School (WMP21)
+          </div>
+          <div class="body-sm">
+            <span style="font-family: var(--font-mono); color: var(--navy); padding-top: 2px; display: inline-block; width: 11px;">
+              —
+            </span>
+            CFA Charter
+          </div>
+          <div class="body-sm">
+            <span style="font-family: var(--font-mono); color: var(--navy); padding-top: 2px; display: inline-block; width: 11px;">
+              —
+            </span>
+            CMA Certificate
+          </div>
+          <div class="body-sm">
+            <span style="font-family: var(--font-mono); color: var(--navy); padding-top: 2px; display: inline-block; width: 11px;">
+              —
+            </span>
+            FSA Credential
+          </div>
+        </div>
+      </div>
+
+      <div class="scrollfade"></div>
+    </section>
+
+    <!-- PROJECTS COLUMN -->
+    <section class="col col-projects">
+      <div class="stickyhead">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
+          <span class="col-header-label" style="color: var(--ink);">Projects</span>
+          <span class="scrollcue">scroll ↓</span>
+        </div>
+        <p class="subtitle">
+          Turning the conventional — the Excel model, the desk calculator — into modern, action-oriented apps.
+        </p>
+      </div>
+
+      <div class="pad">
+        <!-- Project 1: SpaceX Valuation -->
+        <div class="pcard" style="display: flex; flex-wrap: wrap; gap: 34px; margin-bottom: 52px;">
+          <div style="flex: 1 1 270px; min-width: 240px;">
+            <h2 class="project-title" style="margin-bottom: 8px;">SpaceX (SPCX) Valuation Analysis</h2>
+            <a href="https://spcx-valuation-analysis.vercel.app/" target="_blank" class="lnk" style="font-size: 11px; display: inline-block; margin-bottom: 16px;">
+              view ↗
+            </a>
+            <p class="pcard-body" style="margin-bottom: 12px;">
+              SpaceX defies a single valuation line. This sum-of-the-parts framework breaks the business into its
+              constituent segments and lets you stress-test the assumptions that drive the range — rebuilt from Excel
+              into an interactive app you can actually argue with.
+            </p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="tag">ms excel</span>
+              <span class="tag">claude chat + design + code</span>
+            </div>
+          </div>
+          <div style="flex: 2 1 420px; min-width: 330px;">
+            <div
+              style="border: 1px solid var(--rule-light); border-radius: 5px; overflow: hidden; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);"
+            >
+              <div
+                style="height: 34px; background: #F2EFE8; border-bottom: 1px solid var(--rule-light); padding: 0 13px; display: flex; align-items: center; gap: 8px;"
+              >
+                <div style="width: 9px; height: 9px; border-radius: 50%; background: #DAD3C5;"></div>
+                <div style="width: 9px; height: 9px; border-radius: 50%; background: #DAD3C5;"></div>
+                <div style="width: 9px; height: 9px; border-radius: 50%; background: #DAD3C5;"></div>
+                <span style="font-family: var(--font-mono); font-size: 10.5px; color: var(--warm-tan); margin-left: 8px;">
+                  spcx-valuation-analysis.vercel.app
+                </span>
+              </div>
+              <div style="height: 300px; overflow: hidden; position: relative;">
+                <iframe
+                  src="https://spcx-valuation-analysis.vercel.app/"
+                  style="width: 200%; height: 600px; transform: scale(0.5); transform-origin: top left; pointer-events: none; border: none;"
+                  title="SpaceX Valuation"
+                ></iframe>
+                <a
+                  href="https://spcx-valuation-analysis.vercel.app/"
+                  target="_blank"
+                  style="position: absolute; inset: 0; display: block;"
+                  title="Open SpaceX Valuation Analysis"
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: LINEA Valuation -->
+        <div class="pcard" style="display: flex; flex-wrap: wrap; gap: 34px; margin-bottom: 52px;">
+          <div style="flex: 1 1 270px; min-width: 240px;">
+            <h2 class="project-title" style="margin-bottom: 8px;">LINEA Valuation Analysis</h2>
+            <a href="https://linea-valuation-analysis.vercel.app/" target="_blank" class="lnk" style="font-size: 11px; display: inline-block; margin-bottom: 16px;">
+              view ↗
+            </a>
+            <p class="pcard-body" style="margin-bottom: 12px;">
+              A DCF and fee-multiple framework for the Linea blockchain protocol — the kind of model that usually lives
+              buried in a spreadsheet, rebuilt as an interactive tool you can actually steer.
+            </p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="tag">ms excel</span>
+              <span class="tag">claude chat + cursor</span>
+            </div>
+          </div>
+          <div style="flex: 2 1 420px; min-width: 330px;">
+            <div
+              style="border: 1px solid var(--rule-light); border-radius: 5px; overflow: hidden; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);"
+            >
+              <div
+                style="height: 34px; background: #F2EFE8; border-bottom: 1px solid var(--rule-light); padding: 0 13px; display: flex; align-items: center; gap: 8px;"
+              >
+                <div style="width: 9px; height: 9px; border-radius: 50%; background: #DAD3C5;"></div>
+                <div style="width: 9px; height: 9px; border-radius: 50%; background: #DAD3C5;"></div>
+                <div style="width: 9px; height: 9px; border-radius: 50%; background: #DAD3C5;"></div>
+                <span style="font-family: var(--font-mono); font-size: 10.5px; color: var(--warm-tan); margin-left: 8px;">
+                  linea-valuation-analysis.vercel.app
+                </span>
+              </div>
+              <div style="height: 300px; overflow: hidden; position: relative;">
+                <iframe
+                  src="https://linea-valuation-analysis.vercel.app/"
+                  style="width: 200%; height: 600px; transform: scale(0.5); transform-origin: top left; pointer-events: none; border: none;"
+                  title="LINEA Valuation"
+                ></iframe>
+                <a
+                  href="https://linea-valuation-analysis.vercel.app/"
+                  target="_blank"
+                  style="position: absolute; inset: 0; display: block;"
+                  title="Open LINEA Valuation Analysis"
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: RPN Calculator -->
+        <div class="pcard" style="display: flex; flex-wrap: wrap; gap: 34px; margin-bottom: 52px;">
+          <div style="flex: 1 1 270px; min-width: 240px;">
+            <h2 class="project-title" style="margin-bottom: 8px;">RPN Financial Calculator</h2>
+            <a href="https://rpn-financial-calculator.vercel.app/" target="_blank" class="lnk" style="font-size: 11px; display: inline-block; margin-bottom: 16px;">
+              view ↗
+            </a>
+            <p class="pcard-body" style="margin-bottom: 12px;">
+              A browser-based replica of the HP 12c RPN financial calculator — the desk classic a generation of analysts
+              learned on, including yours truly, faithfully rebuilt for the web.
+            </p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="tag">hp 12c</span>
+              <span class="tag">claude chat + cursor</span>
+            </div>
+          </div>
+          <div style="flex: 2 1 420px; min-width: 330px;">
+            <div
+              style="border: 1px solid var(--rule-light); border-radius: 5px; overflow: hidden; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);"
+            >
+              <div
+                style="height: 34px; background: #F2EFE8; border-bottom: 1px solid var(--rule-light); padding: 0 13px; display: flex; align-items: center; gap: 8px;"
+              >
+                <div style="width: 9px; height: 9px; border-radius: 50%; background: #DAD3C5;"></div>
+                <div style="width: 9px; height: 9px; border-radius: 50%; background: #DAD3C5;"></div>
+                <div style="width: 9px; height: 9px; border-radius: 50%; background: #DAD3C5;"></div>
+                <span style="font-family: var(--font-mono); font-size: 10.5px; color: var(--warm-tan); margin-left: 8px;">
+                  rpn-financial-calculator.vercel.app
+                </span>
+              </div>
+              <div style="height: 300px; overflow: hidden; position: relative;">
+                <iframe
+                  src="https://rpn-financial-calculator.vercel.app/"
+                  style="width: 200%; height: 600px; transform: scale(0.5); transform-origin: top left; pointer-events: none; border: none;"
+                  title="RPN Calculator"
+                ></iframe>
+                <a
+                  href="https://rpn-financial-calculator.vercel.app/"
+                  target="_blank"
+                  style="position: absolute; inset: 0; display: block;"
+                  title="Open RPN Financial Calculator"
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scrollfade"></div>
+    </section>
+  </div>
+</MainLayout>
+
+<style>
+  .pcard {
+    transition: transform 0.2s ease;
+  }
+
+  .pcard:hover {
+    transform: translateY(-2px);
+  }
+</style>

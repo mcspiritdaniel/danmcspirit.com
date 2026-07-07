@@ -1,0 +1,82 @@
+/* Design Tokens */
+:root {
+  /* Colors */
+  --paper-dark: #EDE7D9;
+  --paper-mid: #F4F0E7;
+  --paper-light: #FBFAF6;
+  --rule: #DCD3C2;
+  --rule-light: #E8E1D2;
+  --ink: #1B2330;
+  --ink-mid: #3B362B;
+  --ink-light: #5C5648;
+  --muted: #7A7468;
+  --faint: #A39A88;
+  --ghosted: #B3A88F;
+  --navy: #23426A;
+  --tag-text: #6E675B;
+  --warm-tan: #8A8273;
+  --gold: #9A7B3E;
+  --gold-dot: #C79A45;
+
+  /* Fonts */
+  --font-serif: 'Newsreader', serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-sans: 'IBM Plex Sans', sans-serif;
+
+  /* Type Scale */
+  --size-name: 21px;
+  --size-h1: 40px;
+  --size-label: 11px;
+  --size-label-lg: 12px;
+  --size-body: 17px;
+  --size-body-sm: 13.5px;
+  --size-body-xs: 14.5px;
+  --size-project-title: 26px;
+  --size-work-title: 20px;
+  --size-blockquote: 24px;
+  --size-caption: 10.5px;
+  --size-link: 20px;
+  --size-meta: 11px;
+
+  /* Spacing */
+  --sp-xs: 4px;
+  --sp-sm: 9px;
+  --sp-md: 12px;
+  --sp-lg: 16px;
+  --sp-xl: 24px;
+  --sp-2xl: 26px;
+  --sp-3xl: 28px;
+  --sp-4xl: 30px;
+  --sp-5xl: 34px;
+  --sp-6xl: 40px;
+  --sp-7xl: 46px;
+  --sp-8xl: 52px;
+  --sp-9xl: 56px;
+
+  /* Layout */
+  --col-identity-width: 600px;
+  --col-work-width: 362px;
+  --shell-min-width: 1362px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--paper-dark);
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --size-h1: 32px;
+  }
+}
