@@ -158,6 +158,11 @@
   .mbreak {
     display: inline;
   }
+
+  .col-projects {
+    max-width: 550px;
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 1201px) {
