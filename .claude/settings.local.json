@@ -8,7 +8,21 @@
       "Bash(git commit -m ' *)",
       "Bash(git push *)",
       "Bash(find ~ -type d -name \"*SPCX*\" -o -name \"*spcx*\" 2>/dev/null | head -20)",
-      "Bash(find ~ -type f -name \"*SPCX*\" -o -name \"*spcx*\" 2>/dev/null | grep -v node_modules | head -20)"
+      "Bash(find ~ -type f -name \"*SPCX*\" -o -name \"*spcx*\" 2>/dev/null | grep -v node_modules | head -20)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(mkdir -p /Users/danmcspirit/Projects/eth-valuation-app)",
+      "Read(//Users/danmcspirit/Projects/**)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:5173)",
+      "Bash(npx tsc *)",
+      "Bash(sed -i '' \"s/Settlement's/Settlement's/g\" src/App.tsx)",
+      "Bash(sed -i '' \"s/Segment 3'/Segment 3'/g\" src/App.tsx)",
+      "Bash(pkill -f \"npm run dev\")",
+      "Bash(git config *)",
+      "Bash(git commit -m 'Fix slider track consistency across all sliders *)",
+      "Bash(git commit -m 'Ensure consistent slider track thickness across all sliders *)",
+      "Bash(git commit -m 'Update slider label and value typography per Claude Design spec *)"
     ]
   }
 }
