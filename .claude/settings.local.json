@@ -35,7 +35,8 @@
       "Bash(mkdir -p /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots && mv ~/Desktop/eth-valuation.png /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/)",
       "Bash(git commit -m 'Replace ETH iframe with responsive screenshot *)",
       "Bash(git commit -m 'Replace SPCX iframe with responsive screenshot *)",
-      "Bash(git commit -m 'Replace LINEA iframe with responsive screenshot *)"
+      "Bash(git commit -m 'Replace LINEA iframe with responsive screenshot *)",
+      "Bash(git commit -m 'Replace RPN iframe with responsive screenshot *)"
     ]
   }
 }
