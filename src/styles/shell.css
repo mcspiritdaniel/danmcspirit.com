@@ -117,6 +117,11 @@
 
 /* Responsive Behavior */
 @media (max-width: 1200px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
   #shell {
     flex-direction: column;
     min-width: 0;
@@ -175,5 +180,12 @@
 @media (min-width: 1201px) {
   .mbreak {
     display: none;
+  }
+}
+
+/* Remove iframe margin on smaller desktops to prevent shifting */
+@media (max-width: 1400px) {
+  iframe {
+    margin-left: 0 !important;
   }
 }

@@ -23,7 +23,11 @@
       "Bash(git commit -m 'Fix slider track consistency across all sliders *)",
       "Bash(git commit -m 'Ensure consistent slider track thickness across all sliders *)",
       "Bash(git commit -m 'Update slider label and value typography per Claude Design spec *)",
-      "Bash(git commit -m 'Fix slider styling: centering, color consistency, and label formatting *)"
+      "Bash(git commit -m 'Fix slider styling: centering, color consistency, and label formatting *)",
+      "Bash(git commit -m 'Supply chart and Segment 2 fixes *)",
+      "Bash(astro dev *)",
+      "Bash(npx astro *)",
+      "Bash(git commit -m 'Fix mobile scrollbar and desktop iframe margin issues *)"
     ]
   }
 }
