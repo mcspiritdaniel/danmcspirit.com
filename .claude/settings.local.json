@@ -30,7 +30,10 @@
       "Bash(git commit -m 'Fix mobile scrollbar and desktop iframe margin issues *)",
       "Bash(git commit -m 'Fix mobile arrow rendering and text cutoff issues *)",
       "Bash(git commit -m 'Fix desktop iframe cutoff on narrower viewports *)",
-      "Bash(git commit -m 'Fix LinkedIn arrow rendering and restore horizontal scroll on mobile *)"
+      "Bash(git commit -m 'Fix LinkedIn arrow rendering and restore horizontal scroll on mobile *)",
+      "Bash(ls -la ~/Desktop/eth-valuation*)",
+      "Bash(mkdir -p /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots && mv ~/Desktop/eth-valuation.png /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/)",
+      "Bash(git commit -m 'Replace ETH iframe with responsive screenshot *)"
     ]
   }
 }
