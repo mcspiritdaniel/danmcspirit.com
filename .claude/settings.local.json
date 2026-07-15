@@ -37,7 +37,8 @@
       "Bash(git commit -m 'Replace SPCX iframe with responsive screenshot *)",
       "Bash(git commit -m 'Replace LINEA iframe with responsive screenshot *)",
       "Bash(git commit -m 'Replace RPN iframe with responsive screenshot *)",
-      "Bash(git commit -m 'Clean up iframe-specific CSS rules *)"
+      "Bash(git commit -m 'Clean up iframe-specific CSS rules *)",
+      "Bash(git commit -m 'Update Featured Projects descriptions *)"
     ]
   }
 }
