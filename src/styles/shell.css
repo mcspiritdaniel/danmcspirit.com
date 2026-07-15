@@ -171,11 +171,6 @@
     box-sizing: border-box;
   }
 
-  /* Hide project iframe previews on mobile */
-  .pcard > div:last-child {
-    display: none;
-  }
-
   /* Reduce padding on projects column on mobile to prevent text cutoff */
   .col-projects .pad {
     padding: var(--sp-6xl) var(--sp-2xl) var(--sp-9xl) !important;
@@ -188,14 +183,7 @@
   }
 }
 
-/* Remove iframe margin on smaller desktops to prevent shifting */
-@media (max-width: 1400px) {
-  iframe {
-    margin-left: 0 !important;
-  }
-}
-
-/* Adjust project card layout for narrower desktops to prevent cutoff */
+/* Adjust project card layout for narrower desktops */
 @media (max-width: 1300px) {
   .pcard {
     gap: 24px !important;
