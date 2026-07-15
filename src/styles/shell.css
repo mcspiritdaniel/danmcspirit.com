@@ -194,3 +194,20 @@
     margin-left: 0 !important;
   }
 }
+
+/* Adjust project card layout for narrower desktops to prevent cutoff */
+@media (max-width: 1300px) {
+  .pcard {
+    gap: 24px !important;
+  }
+
+  .pcard > div:first-child {
+    flex: 1 1 220px !important;
+    min-width: 220px !important;
+  }
+
+  .pcard > div:last-child {
+    flex: 1 1 300px !important;
+    min-width: 280px !important;
+  }
+}
