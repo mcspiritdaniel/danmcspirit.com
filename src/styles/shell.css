@@ -175,6 +175,11 @@
   .pcard > div:last-child {
     display: none;
   }
+
+  /* Reduce padding on projects column on mobile to prevent text cutoff */
+  .col-projects .pad {
+    padding: var(--sp-6xl) var(--sp-2xl) var(--sp-9xl) !important;
+  }
 }
 
 @media (min-width: 1201px) {

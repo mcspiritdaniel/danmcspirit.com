@@ -27,7 +27,8 @@
       "Bash(git commit -m 'Supply chart and Segment 2 fixes *)",
       "Bash(astro dev *)",
       "Bash(npx astro *)",
-      "Bash(git commit -m 'Fix mobile scrollbar and desktop iframe margin issues *)"
+      "Bash(git commit -m 'Fix mobile scrollbar and desktop iframe margin issues *)",
+      "Bash(git commit -m 'Fix mobile arrow rendering and text cutoff issues *)"
     ]
   }
 }
