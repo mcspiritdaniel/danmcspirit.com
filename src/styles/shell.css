@@ -160,8 +160,15 @@
   }
 
   .col-projects {
-    max-width: 550px;
+    max-width: none;
+    width: 100%;
     margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  /* Hide project iframe previews on mobile */
+  .pcard > div:last-child {
+    display: none;
   }
 }
 
