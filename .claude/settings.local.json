@@ -42,7 +42,8 @@
       "Bash(git commit -m 'Add SPCX Valuation: Four Businesses project to Featured Projects *)",
       "Bash(git commit -m 'Move SPCX Four Businesses to first project, add whitespace padding *)",
       "Bash(git commit -m 'Update SPCX Four Businesses screenshot *)",
-      "Bash(git commit -m 'Link SPCX Four Businesses project to PDF document *)"
+      "Bash(git commit -m 'Link SPCX Four Businesses project to PDF document *)",
+      "Bash(git commit -m 'Update SPCX project title punctuation *)"
     ]
   }
 }
