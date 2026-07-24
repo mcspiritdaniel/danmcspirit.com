@@ -40,7 +40,9 @@
       "Bash(git commit -m 'Clean up iframe-specific CSS rules *)",
       "Bash(git commit -m 'Update Featured Projects descriptions *)",
       "Bash(git commit -m 'Add SPCX Valuation: Four Businesses project to Featured Projects *)",
-      "Bash(git commit -m 'Move SPCX Four Businesses to first project, add whitespace padding *)"
+      "Bash(git commit -m 'Move SPCX Four Businesses to first project, add whitespace padding *)",
+      "Bash(git commit -m 'Update SPCX Four Businesses screenshot *)",
+      "Bash(git commit -m 'Link SPCX Four Businesses project to PDF document *)"
     ]
   }
 }
