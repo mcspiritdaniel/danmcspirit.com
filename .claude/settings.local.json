@@ -46,7 +46,8 @@
       "Bash(git commit -m 'Update SPCX project title punctuation *)",
       "Bash(git commit -m 'Update SPCX project tags to single '\\\\''claude design'\\\\'' tag *)",
       "Bash(git commit -m 'Update SPCX card header text *)",
-      "Bash(git commit -m 'Update SPCX project title wording *)"
+      "Bash(git commit -m 'Update SPCX project title wording *)",
+      "Bash(git commit -m 'Add X social link and desktop viewing notices *)"
     ]
   }
 }
