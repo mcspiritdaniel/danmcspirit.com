@@ -119,7 +119,7 @@
 @media (max-width: 1200px) {
   html,
   body {
-    overflow-x: auto;
+    overflow-x: hidden;
   }
 
   #shell {
@@ -132,6 +132,8 @@
   .col {
     flex: none;
     width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
     height: auto !important;
     overflow: visible !important;
     border-right: none !important;
@@ -197,5 +199,16 @@
   .pcard > div:last-child {
     flex: 1 1 300px !important;
     min-width: 280px !important;
+  }
+}
+
+/* Reset project card widths on mobile */
+@media (max-width: 1200px) {
+  .pcard > div:first-child {
+    min-width: 0 !important;
+  }
+
+  .pcard > div:last-child {
+    min-width: 0 !important;
   }
 }
