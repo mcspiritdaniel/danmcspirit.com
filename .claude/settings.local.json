@@ -82,7 +82,10 @@
       "Bash(cp /tmp/favicon-new/favicon-update/favicon-180.png /Users/danmcspirit/Projects/danmcspirit.com/public/favicon-180.png)",
       "Bash(cp /tmp/favicon-new/favicon-update/favicon-512.png /Users/danmcspirit/Projects/danmcspirit.com/public/favicon-512.png)",
       "Bash(unzip -l \"Personal Site.zip\")",
-      "Bash(unzip -q \"Personal Site.zip\")"
+      "Bash(unzip -q \"Personal Site.zip\")",
+      "Bash(rm -rf favicon-update-new)",
+      "Bash(mkdir favicon-update-new *)",
+      "Bash(unzip -q ../\"Personal Site.zip\")"
     ]
   }
 }
