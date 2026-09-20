@@ -85,7 +85,16 @@
       "Bash(unzip -q \"Personal Site.zip\")",
       "Bash(rm -rf favicon-update-new)",
       "Bash(mkdir favicon-update-new *)",
-      "Bash(unzip -q ../\"Personal Site.zip\")"
+      "Bash(unzip -q ../\"Personal Site.zip\")",
+      "Bash(awk '{print $9, $5}')",
+      "Bash(curl -sI https://danmcspirit.com/favicon-32.png)",
+      "Bash(curl -sI https://www.danmcspirit.com/favicon-32.png)",
+      "Bash(curl -s https://www.danmcspirit.com)",
+      "Bash(brew install *)",
+      "Bash(which gs *)",
+      "Bash(python3 -c \"from PIL import Image; print\\('PIL available'\\)\")",
+      "Bash(sed -i '' 's/<!-- Project 2: SBET Absolute Valuation -->/<!-- Project 4: SBET Absolute Valuation -->/g' src/pages/index.astro)",
+      "Bash(sed -i '' 's/<!-- Project 2: Neocloud Asset Life -->/<!-- Project 5: Neocloud Asset Life -->/g' src/pages/index.astro)"
     ]
   }
 }
