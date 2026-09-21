@@ -94,7 +94,9 @@
       "Bash(which gs *)",
       "Bash(python3 -c \"from PIL import Image; print\\('PIL available'\\)\")",
       "Bash(sed -i '' 's/<!-- Project 2: SBET Absolute Valuation -->/<!-- Project 4: SBET Absolute Valuation -->/g' src/pages/index.astro)",
-      "Bash(sed -i '' 's/<!-- Project 2: Neocloud Asset Life -->/<!-- Project 5: Neocloud Asset Life -->/g' src/pages/index.astro)"
+      "Bash(sed -i '' 's/<!-- Project 2: Neocloud Asset Life -->/<!-- Project 5: Neocloud Asset Life -->/g' src/pages/index.astro)",
+      "Bash(cp /Users/danmcspirit/Projects/SBET/Screenshots/sbet-return-contribution.png /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/ && ls -lh /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/sbet-return-contribution.png)",
+      "Bash(cp /Users/danmcspirit/Projects/sbet-absolute-valuation/screenshots/sbet-return-contribution.png /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/ && ls -lh /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/sbet-return-contribution.png)"
     ]
   }
 }
