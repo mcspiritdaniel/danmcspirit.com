@@ -96,7 +96,13 @@
       "Bash(sed -i '' 's/<!-- Project 2: SBET Absolute Valuation -->/<!-- Project 4: SBET Absolute Valuation -->/g' src/pages/index.astro)",
       "Bash(sed -i '' 's/<!-- Project 2: Neocloud Asset Life -->/<!-- Project 5: Neocloud Asset Life -->/g' src/pages/index.astro)",
       "Bash(cp /Users/danmcspirit/Projects/SBET/Screenshots/sbet-return-contribution.png /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/ && ls -lh /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/sbet-return-contribution.png)",
-      "Bash(cp /Users/danmcspirit/Projects/sbet-absolute-valuation/screenshots/sbet-return-contribution.png /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/ && ls -lh /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/sbet-return-contribution.png)"
+      "Bash(cp /Users/danmcspirit/Projects/sbet-absolute-valuation/screenshots/sbet-return-contribution.png /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/ && ls -lh /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/sbet-return-contribution.png)",
+      "Bash(cp /Users/danmcspirit/.claude/uploads/de148add-bac1-4d5d-a0d3-fc734b5b26d0/d050e70d-LINEA_Return_Decomposition.pdf /Users/danmcspirit/Projects/danmcspirit.com/public/linea-return-decomposition.pdf && ls -lh /Users/danmcspirit/Projects/danmcspirit.com/public/linea-return-decomposition.pdf)",
+      "Bash(find /Users/danmcspirit/.claude/uploads -name \"*LINEA*\" -o -name \"*linea*\" 2>/dev/null | head -10)",
+      "Bash(sips -s format png /private/tmp/claude-501/-Users-danmcspirit-Projects-danmcspirit-com/de148add-bac1-4d5d-a0d3-fc734b5b26d0/images/1.webp --out /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/linea-return-decomposition.png)",
+      "Bash(sed -i '' 's/<!-- Project 3: SBET Build Process -->/<!-- Project 4: SBET Build Process -->/g' src/pages/index.astro)",
+      "Bash(sed -i '' 's/<!-- Project 4: SBET Absolute Valuation -->/<!-- Project 5: SBET Absolute Valuation -->/g' src/pages/index.astro)",
+      "Bash(sed -i '' 's/<!-- Project 5: Neocloud Asset Life -->/<!-- Project 6: Neocloud Asset Life -->/g' src/pages/index.astro)"
     ]
   }
 }
