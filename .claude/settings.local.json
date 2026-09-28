@@ -102,7 +102,14 @@
       "Bash(sips -s format png /private/tmp/claude-501/-Users-danmcspirit-Projects-danmcspirit-com/de148add-bac1-4d5d-a0d3-fc734b5b26d0/images/1.webp --out /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/linea-return-decomposition.png)",
       "Bash(sed -i '' 's/<!-- Project 3: SBET Build Process -->/<!-- Project 4: SBET Build Process -->/g' src/pages/index.astro)",
       "Bash(sed -i '' 's/<!-- Project 4: SBET Absolute Valuation -->/<!-- Project 5: SBET Absolute Valuation -->/g' src/pages/index.astro)",
-      "Bash(sed -i '' 's/<!-- Project 5: Neocloud Asset Life -->/<!-- Project 6: Neocloud Asset Life -->/g' src/pages/index.astro)"
+      "Bash(sed -i '' 's/<!-- Project 5: Neocloud Asset Life -->/<!-- Project 6: Neocloud Asset Life -->/g' src/pages/index.astro)",
+      "Bash(sed -i '' 's/sbet-return-contribution/sbet return contribution/g' src/pages/index.astro)",
+      "Bash(sed -i '' 's/linea-return-decomposition/linea return decomposition/g' src/pages/index.astro)",
+      "Bash(sed -i '' 's|/sbet return contribution\\\\.pdf|/sbet-return-contribution.pdf|g' src/pages/index.astro)",
+      "Bash(sed -i '' 's|/screenshots/sbet return contribution\\\\.png|/screenshots/sbet-return-contribution.png|g' src/pages/index.astro)",
+      "Bash(sed -i '' 's|/linea return decomposition\\\\.pdf|/linea-return-decomposition.pdf|g' src/pages/index.astro)",
+      "Bash(sed -i '' 's|/screenshots/linea return decomposition\\\\.png|/screenshots/linea-return-decomposition.png|g' src/pages/index.astro)",
+      "Bash(sips -s format png /private/tmp/claude-501/-Users-danmcspirit-Projects-danmcspirit-com/de148add-bac1-4d5d-a0d3-fc734b5b26d0/images/3.webp --out /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/sbet-discount-return-analysis.png)"
     ]
   }
 }
