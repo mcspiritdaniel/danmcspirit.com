@@ -109,7 +109,13 @@
       "Bash(sed -i '' 's|/screenshots/sbet return contribution\\\\.png|/screenshots/sbet-return-contribution.png|g' src/pages/index.astro)",
       "Bash(sed -i '' 's|/linea return decomposition\\\\.pdf|/linea-return-decomposition.pdf|g' src/pages/index.astro)",
       "Bash(sed -i '' 's|/screenshots/linea return decomposition\\\\.png|/screenshots/linea-return-decomposition.png|g' src/pages/index.astro)",
-      "Bash(sips -s format png /private/tmp/claude-501/-Users-danmcspirit-Projects-danmcspirit-com/de148add-bac1-4d5d-a0d3-fc734b5b26d0/images/3.webp --out /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/sbet-discount-return-analysis.png)"
+      "Bash(sips -s format png /private/tmp/claude-501/-Users-danmcspirit-Projects-danmcspirit-com/de148add-bac1-4d5d-a0d3-fc734b5b26d0/images/3.webp --out /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/sbet-discount-return-analysis.png)",
+      "Bash(sips -s format png /private/tmp/claude-501/-Users-danmcspirit-Projects-danmcspirit-com/de148add-bac1-4d5d-a0d3-fc734b5b26d0/images/4.webp --out /Users/danmcspirit/Projects/danmcspirit.com/public/screenshots/eth-valuation-analysis-agentic-finance.png)",
+      "Bash(sed -i '' 's/<!-- Project 2: SBET Discount & Return Analysis -->/<!-- Project 3: SBET Discount \\\\& Return Analysis -->/g' src/pages/index.astro)",
+      "Bash(sed -i '' 's/<!-- Project 3: SBET Return Contribution -->/<!-- Project 4: SBET Return Contribution -->/g' src/pages/index.astro)",
+      "Bash(sed -i '' 's/<!-- Project 4: SBET Build Process -->/<!-- Project 5: SBET Build Process -->/g' src/pages/index.astro)",
+      "Bash(sed -i '' 's/<!-- Project 5: SBET Absolute Valuation -->/<!-- Project 6: SBET Absolute Valuation -->/g' src/pages/index.astro)",
+      "Bash(sed -i '' 's/<!-- Project 6: Neocloud Asset Life -->/<!-- Project 7: Neocloud Asset Life -->/g' src/pages/index.astro)"
     ]
   }
 }
