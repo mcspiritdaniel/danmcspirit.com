@@ -587,8 +587,14 @@ import MainLayout from '../layouts/MainLayout.astro';
   .project-title-row {
     display: flex;
     align-items: baseline;
-    gap: 12px;
+    gap: 8px;
     margin-bottom: 8px;
+    flex-wrap: nowrap;
+  }
+
+  .project-title-row .project-title {
+    flex-shrink: 1;
+    min-width: 0;
   }
 
   .project-title {
