@@ -605,11 +605,21 @@ import MainLayout from '../layouts/MainLayout.astro';
 </style>
 
 <script is:inline>
-document.querySelectorAll('.group-header').forEach(function(header) {
-  header.addEventListener('click', function() {
-    this.classList.toggle('expanded');
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.group-header').forEach(function(header) {
+      header.addEventListener('click', function() {
+        this.classList.toggle('expanded');
+      });
+    });
   });
-});
+} else {
+  document.querySelectorAll('.group-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+      this.classList.toggle('expanded');
+    });
+  });
+}
 </script>
 
 </MainLayout>
