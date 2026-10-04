@@ -610,10 +610,14 @@ import MainLayout from '../layouts/MainLayout.astro';
 
   .project-item {
     margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule-light);
   }
 
   .project-item:last-child {
     margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
   }
 
   .project-title-row {
@@ -635,6 +639,10 @@ import MainLayout from '../layouts/MainLayout.astro';
     font-weight: 500;
     color: var(--navy);
     margin: 0;
+  }
+
+  .project-title-row a:hover .project-title {
+    text-decoration: underline;
   }
 
   .pcard {
