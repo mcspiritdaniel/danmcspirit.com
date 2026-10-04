@@ -216,7 +216,7 @@ import MainLayout from '../layouts/MainLayout.astro';
         <div class="projects-groups">
           <!-- Group 1: Process & Verification -->
           <div class="project-group">
-            <div class="group-header expanded" onclick="this.classList.toggle('expanded')">
+            <div class="group-header expanded" onclick="this.classList.toggle('expanded'); const toggle = this.querySelector('.group-toggle'); toggle.textContent = this.classList.contains('expanded') ? '−' : '+'">
               <div class="group-toggle">−</div>
               <div class="group-info">
                 <div class="group-title">Process & Verification</div>
@@ -241,7 +241,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 
           <!-- Group 2: Deep Analysis -->
           <div class="project-group">
-            <div class="group-header" onclick="this.classList.toggle('expanded')">
+            <div class="group-header" onclick="this.classList.toggle('expanded'); const toggle = this.querySelector('.group-toggle'); toggle.textContent = this.classList.contains('expanded') ? '−' : '+'">
               <div class="group-toggle">+</div>
               <div class="group-info">
                 <div class="group-title">Deep Analysis</div>
@@ -337,7 +337,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 
           <!-- Group 3: Interactive Applications -->
           <div class="project-group">
-            <div class="group-header" onclick="this.classList.toggle('expanded')">
+            <div class="group-header" onclick="this.classList.toggle('expanded'); const toggle = this.querySelector('.group-toggle'); toggle.textContent = this.classList.contains('expanded') ? '−' : '+'">
               <div class="group-toggle">+</div>
               <div class="group-info">
                 <div class="group-title">Interactive Applications</div>
@@ -426,7 +426,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 
           <!-- Group 4: Systematic Frameworks -->
           <div class="project-group">
-            <div class="group-header" onclick="this.classList.toggle('expanded')">
+            <div class="group-header" onclick="this.classList.toggle('expanded'); const toggle = this.querySelector('.group-toggle'); toggle.textContent = this.classList.contains('expanded') ? '−' : '+'">
               <div class="group-toggle">+</div>
               <div class="group-info">
                 <div class="group-title">Systematic Frameworks</div>
@@ -549,7 +549,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 
   .group-title {
     font-family: var(--font-serif);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     color: var(--navy);
     margin-bottom: 4px;
@@ -589,7 +589,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 
   .project-title {
     font-family: var(--font-serif);
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     color: var(--navy);
     margin: 0;
