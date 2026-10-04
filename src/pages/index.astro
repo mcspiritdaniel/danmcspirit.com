@@ -604,13 +604,12 @@ import MainLayout from '../layouts/MainLayout.astro';
   }
 </style>
 
-<script>
-  document.querySelectorAll('.group-header').forEach(header => {
-    header.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.classList.toggle('expanded');
-    });
+<script is:inline>
+document.querySelectorAll('.group-header').forEach(function(header) {
+  header.addEventListener('click', function() {
+    this.classList.toggle('expanded');
   });
+});
 </script>
 
 </MainLayout>
