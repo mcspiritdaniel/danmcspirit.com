@@ -605,20 +605,24 @@ import MainLayout from '../layouts/MainLayout.astro';
 </style>
 
 <script is:inline>
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.group-header').forEach(function(header) {
-      header.addEventListener('click', function() {
-        this.classList.toggle('expanded');
-      });
-    });
-  });
-} else {
+function setupToggles() {
   document.querySelectorAll('.group-header').forEach(function(header) {
-    header.addEventListener('click', function() {
-      this.classList.toggle('expanded');
-    });
+    header.style.cursor = 'pointer';
+    header.onclick = function(e) {
+      e.stopPropagation();
+      const content = this.nextElementSibling;
+      if (content && content.classList.contains('group-content')) {
+        this.classList.toggle('expanded');
+        content.style.display = this.classList.contains('expanded') ? 'block' : 'none';
+      }
+    };
   });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupToggles);
+} else {
+  setupToggles();
 }
 </script>
 
