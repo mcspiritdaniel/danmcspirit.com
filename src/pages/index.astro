@@ -611,9 +611,14 @@ function setupToggles() {
     header.onclick = function(e) {
       e.stopPropagation();
       const content = this.nextElementSibling;
+      const toggle = this.querySelector('.group-toggle');
       if (content && content.classList.contains('group-content')) {
         this.classList.toggle('expanded');
-        content.style.display = this.classList.contains('expanded') ? 'block' : 'none';
+        const isExpanded = this.classList.contains('expanded');
+        content.style.display = isExpanded ? 'block' : 'none';
+        if (toggle) {
+          toggle.textContent = isExpanded ? '−' : '+';
+        }
       }
     };
   });
