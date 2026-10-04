@@ -1,7 +1,7 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
-const { file } = Astro.url.searchParams;
+const file = Astro.url.searchParams.get('file');
 
 if (!file) {
   return Astro.redirect('/');
