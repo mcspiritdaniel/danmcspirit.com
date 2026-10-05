@@ -34,42 +34,26 @@ import MainLayout from '../layouts/MainLayout.astro';
     <!-- CONCEPTS COLUMN -->
     <section class="col col-work">
       <div class="stickyhead">
-        <span class="col-header-label" style="color: var(--navy);">Concepts</span>
+        <span class="col-header-label" style="color: var(--navy);">Slides</span>
       </div>
 
       <div class="pad" style="padding: 30px var(--sp-5xl);">
-        <div class="concept-list">
-          <button class="concept-item active" data-concept="price-value">
-            <span>Price vs Value</span>
-            <span class="concept-arrow">→</span>
-          </button>
-          <button class="concept-item" data-concept="capital-allocation">
-            <span>Capital Allocation</span>
-            <span class="concept-arrow">→</span>
-          </button>
-          <button class="concept-item" data-concept="leverage">
-            <span>Leverage</span>
-            <span class="concept-arrow">→</span>
-          </button>
-          <button class="concept-item" data-concept="risk-return">
-            <span>Risk vs Return</span>
-            <span class="concept-arrow">→</span>
-          </button>
-          <button class="concept-item" data-concept="verification">
-            <span>Verification</span>
-            <span class="concept-arrow">→</span>
-          </button>
+        <div class="slide-list" id="slide-list">
+          <!-- Populated by JavaScript -->
         </div>
       </div>
 
       <div class="scrollfade"></div>
     </section>
 
-    <!-- DETAIL COLUMN -->
+    <!-- SLIDE COLUMN -->
     <section class="col col-projects">
-      <div class="pad" style="padding-top: var(--sp-3xl);">
-        <div id="concept-detail">
-          <!-- Content populated by JavaScript -->
+      <div class="pad" style="padding: var(--sp-3xl) var(--sp-5xl);">
+        <div id="slide-viewer">
+          <img id="slide-image" src="" alt="Slide" style="width: 100%; height: auto; border-radius: 4px;">
+        </div>
+        <div id="slide-counter" style="text-align: center; margin-top: 16px; font-size: 13px; color: var(--faint);">
+          <span id="current-slide">1</span> / <span id="total-slides">39</span>
         </div>
       </div>
 
@@ -85,167 +69,139 @@ import MainLayout from '../layouts/MainLayout.astro';
     margin: 40px 0;
   }
 
-  .concept-list {
+  .slide-list {
     display: flex;
     flex-direction: column;
     gap: 0;
   }
 
-  .concept-item {
+  .slide-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 20px;
+    padding: 12px 16px;
     background: transparent;
     border: none;
     border-bottom: 1px solid var(--rule-light);
     cursor: pointer;
     text-align: left;
-    font-family: var(--font-serif);
-    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 13px;
     font-weight: 400;
     color: var(--navy);
     transition: background 0.2s;
   }
 
-  .concept-item:hover {
+  .slide-item:hover {
     background: #faf8f3;
   }
 
-  .concept-item.active {
+  .slide-item.active {
     background: #f5f3f0;
     border-left: 3px solid var(--navy);
-    padding-left: 17px;
+    padding-left: 13px;
   }
 
-  .concept-arrow {
-    font-size: 14px;
+  .slide-number {
+    font-size: 11px;
     color: var(--faint);
-    opacity: 0;
-    transition: opacity 0.2s;
+    flex-shrink: 0;
+    margin-left: 8px;
   }
 
-  .concept-item:hover .concept-arrow {
-    opacity: 1;
-  }
-
-  .concept-item.active .concept-arrow {
-    opacity: 1;
-    color: var(--navy);
-  }
-
-  .concept-title {
-    font-family: var(--font-serif);
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 24px;
-  }
-
-  .concept-content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .concept-content p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--ink);
-    margin: 0;
-  }
-
-  .concept-content p.muted {
-    color: var(--faint);
-    font-style: italic;
-  }
-
-  .concept-graphic {
-    margin-top: 24px;
-    padding-top: 24px;
-    border-top: 1px solid var(--rule-light);
-  }
-
-  .concept-graphic svg {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
+  .slide-title {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 </style>
 
 <script>
-const concepts = {
-  'price-value': {
-    title: 'Price vs Value',
-    content: `
-      <p>Price is what you pay. Value is what you get. The gap between them is where opportunity and risk live.</p>
-      <p>Most market participants confuse the two. A stock trading at $50 is not worth $50. Its price is $50. What you own—its cash generation, growth trajectory, competitive position, balance sheet strength—determines its value. When price and value diverge, you have either opportunity or danger.</p>
-      <p class="muted">The discipline is in the work: building a model that captures what the business actually does, testing it against reality, and having the conviction to act when price and value are clearly misaligned.</p>
-    `
-  },
-  'capital-allocation': {
-    title: 'Capital Allocation',
-    content: `
-      <p>Every decision about where capital goes is a decision about value creation or destruction. This is true whether you're managing a company, a portfolio, or a career.</p>
-      <p>A company that deploys capital into projects with returns above its cost of capital creates value. One that deploys below its cost of capital destroys it, regardless of how well it executes. Management's primary job is capital allocation.</p>
-      <p>The same logic applies to your own capital—financial and human. Where you invest your attention, time, and money determines whether you create value for yourself and others.</p>
-      <p class="muted">This is why I focus on companies and projects where capital has been systematically misallocated. The work is identifying what's being done wrong and what would create value if done differently.</p>
-    `
-  },
-  'leverage': {
-    title: 'Leverage',
-    content: `
-      <p>Leverage amplifies returns. It also amplifies risk. The mistake is treating it as separate from risk—it is risk.</p>
-      <p>A company with no leverage might return 8% on equity. With 2x leverage, it might return 15%. But it's also one down quarter away from covenant violations and dilutive equity raises. The higher return comes with a tail risk that most investors price poorly.</p>
-      <p>Leverage works beautifully in good times and devastates in bad ones. The companies that survive and prosper through cycles are those that use leverage only when they can sustain it through the worst scenarios they can imagine.</p>
-      <p class="muted">When analyzing leverage, I work backward from: what would break this? Not what might break it. What would actually break it.</p>
-    `
-  },
-  'risk-return': {
-    title: 'Risk vs Return',
-    content: `
-      <p>Risk and return are inextricably linked. You cannot have high return without high risk. What you can have is high risk with low return—that's just bad investing.</p>
-      <p>The hard part is identifying which risks are actually priced into the return you're being offered. A stock trading at 8x earnings in a stable, high-return business is lower risk than one trading at 20x earnings in a commodity business, regardless of what the volatility charts say.</p>
-      <p>If you can't see the risk, you haven't looked hard enough. This is where most analysis fails. It's easy to model the base case. It's harder—and more important—to identify what could go wrong and whether you're being paid for that possibility.</p>
-      <p class="muted">The returns go to those who can see risks others miss and price them correctly.</p>
-    `
-  },
-  'verification': {
-    title: 'Verification',
-    content: `
-      <p>Your model is not the business. Your model is how you think about the business. The gap between the two is where mistakes happen.</p>
-      <p>Verification means stress-testing your model against reality. Running the numbers against what actually happened. Finding the places where your thinking was wrong. A model that passes verification is one you can trust. One that doesn't is just a story you told yourself.</p>
-      <p>The best verification is simple: can you predict what happens next? If your model is right, you should be able to forecast results, and they should match. If they don't, your model is wrong.</p>
-      <p class="muted">This is why I build regression harnesses and run second systems with no stake in the first one's conclusions. You need an independent check.</p>
-    `
-  }
-};
+const slides = [
+  { id: "slide-01", num: 1, title: "Value Creation, Strategy & Other Thoughts", image: "/value-framework-slides/slide-01.png" },
+  { id: "slide-02", num: 2, title: "Seasoned Navigator: Multi-cycle experience", image: "/value-framework-slides/slide-02.png" },
+  { id: "slide-03", num: 3, title: "The DuPont Framework", image: "/value-framework-slides/slide-03.png" },
+  { id: "slide-04", num: 4, title: "Positioning: Are you in the value creation game?", image: "/value-framework-slides/slide-04.png" },
+  { id: "slide-05", num: 5, title: "Sustainability", image: "/value-framework-slides/slide-05.png" },
+  { id: "slide-06", num: 6, title: "Value: The Math", image: "/value-framework-slides/slide-06.png" },
+  { id: "slide-07", num: 7, title: "NOPAT: Operating Earnings", image: "/value-framework-slides/slide-07.png" },
+  { id: "slide-08", num: 8, title: "Sales Margin: Operating Efficiency", image: "/value-framework-slides/slide-08.png" },
+  { id: "slide-09", num: 9, title: "ROIC: Capital Efficiency", image: "/value-framework-slides/slide-09.png" },
+  { id: "slide-10", num: 10, title: "Systems View: How It Works Together", image: "/value-framework-slides/slide-10.png" },
+  { id: "slide-11", num: 11, title: "Strategic Positioning", image: "/value-framework-slides/slide-11.png" },
+  { id: "slide-12", num: 12, title: "Competitive Advantage: The Formula", image: "/value-framework-slides/slide-12.png" },
+  { id: "slide-13", num: 13, title: "Sources of Advantage", image: "/value-framework-slides/slide-13.png" },
+  { id: "slide-14", num: 14, title: "Leveraging Your Advantages", image: "/value-framework-slides/slide-14.png" },
+  { id: "slide-15", num: 15, title: "Strategic Intent & Long-term Thinking", image: "/value-framework-slides/slide-15.png" },
+  { id: "slide-16", num: 16, title: "Return on New Invested Capital", image: "/value-framework-slides/slide-16.png" },
+  { id: "slide-17", num: 17, title: "Opportunity Cost vs Expected Return", image: "/value-framework-slides/slide-17.png" },
+  { id: "slide-18", num: 18, title: "Growth Opportunities", image: "/value-framework-slides/slide-18.png" },
+  { id: "slide-19", num: 19, title: "Decision Making Under Uncertainty", image: "/value-framework-slides/slide-19.png" },
+  { id: "slide-20", num: 20, title: "Objective vs. Result", image: "/value-framework-slides/slide-20.png" },
+  { id: "slide-21", num: 21, title: "The Growth Equation", image: "/value-framework-slides/slide-21.png" },
+  { id: "slide-22", num: 22, title: "Investment Rate & Growth Rate", image: "/value-framework-slides/slide-22.png" },
+  { id: "slide-23", num: 23, title: "Portfolio Management", image: "/value-framework-slides/slide-23.png" },
+  { id: "slide-24", num: 24, title: "Types of Growth", image: "/value-framework-slides/slide-24.png" },
+  { id: "slide-25", num: 25, title: "Leverage: Amplifying Returns and Risk", image: "/value-framework-slides/slide-25.png" },
+  { id: "slide-26", num: 26, title: "Sustainability & Capital Structure", image: "/value-framework-slides/slide-26.png" },
+  { id: "slide-27", num: 27, title: "Long-term Strategic Thinking", image: "/value-framework-slides/slide-27.png" },
+  { id: "slide-28", num: 28, title: "Obsessive Focus on Value Creation", image: "/value-framework-slides/slide-28.png" },
+  { id: "slide-29", num: 29, title: "Emotional Discipline", image: "/value-framework-slides/slide-29.png" },
+  { id: "slide-30", num: 30, title: "Interconnected Systems", image: "/value-framework-slides/slide-30.png" },
+  { id: "slide-31", num: 31, title: "Price Premium", image: "/value-framework-slides/slide-31.png" },
+  { id: "slide-32", num: 32, title: "Effective Market Share", image: "/value-framework-slides/slide-32.png" },
+  { id: "slide-33", num: 33, title: "Market Size: TAM, SAM, SOM", image: "/value-framework-slides/slide-33.png" },
+  { id: "slide-34", num: 34, title: "Terminal Value: The Long Game", image: "/value-framework-slides/slide-34.png" },
+  { id: "slide-35", num: 35, title: "Strategy Execution", image: "/value-framework-slides/slide-35.png" },
+  { id: "slide-36", num: 36, title: "Customer Value", image: "/value-framework-slides/slide-36.png" },
+  { id: "slide-37", num: 37, title: "Innovation: Breakthrough vs Incremental", image: "/value-framework-slides/slide-37.png" },
+  { id: "slide-38", num: 38, title: "Exploring New Opportunities", image: "/value-framework-slides/slide-38.png" },
+  { id: "slide-39", num: 39, title: "Building Value: From Seed to Scale", image: "/value-framework-slides/slide-39.png" },
+];
 
-function showConcept(conceptId) {
-  const detail = document.getElementById('concept-detail');
-  const concept = concepts[conceptId];
+function showSlide(slideId) {
+  const slide = slides.find(s => s.id === slideId);
+  if (!slide) return;
 
-  detail.innerHTML = `
-    <h2 class="concept-title">${concept.title}</h2>
-    <div class="concept-content">
-      ${concept.content}
-    </div>
-  `;
+  // Update image
+  document.getElementById('slide-image').src = slide.image;
+  document.getElementById('current-slide').textContent = slide.num;
 
   // Update active state
-  document.querySelectorAll('.concept-item').forEach(item => {
+  document.querySelectorAll('.slide-item').forEach(item => {
     item.classList.remove('active');
   });
-  document.querySelector(`[data-concept="${conceptId}"]`).classList.add('active');
+  document.querySelector(`[data-slide="${slideId}"]`).classList.add('active');
+
+  // Scroll to active item
+  document.querySelector(`[data-slide="${slideId}"]`).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// Set up click handlers
-document.querySelectorAll('.concept-item').forEach(item => {
-  item.addEventListener('click', () => {
-    showConcept(item.dataset.concept);
-  });
-});
+function initializeSlideList() {
+  const listContainer = document.getElementById('slide-list');
+  document.getElementById('total-slides').textContent = slides.length;
 
-// Show first concept by default
-showConcept('price-value');
+  slides.forEach(slide => {
+    const button = document.createElement('button');
+    button.className = `slide-item ${slide.num === 1 ? 'active' : ''}`;
+    button.dataset.slide = slide.id;
+    button.innerHTML = `
+      <span class="slide-title">${slide.title}</span>
+      <span class="slide-number">${slide.num}</span>
+    `;
+    button.addEventListener('click', () => showSlide(slide.id));
+    listContainer.appendChild(button);
+  });
+
+  // Show first slide
+  showSlide('slide-01');
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeSlideList);
+} else {
+  initializeSlideList();
+}
 </script>
