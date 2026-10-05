@@ -11,19 +11,19 @@ import MainLayout from '../layouts/MainLayout.astro';
         <div class="metadata">Denver, Colorado</div>
       </div>
 
-      <h1 style="margin-bottom: 102px;">
+      <h1 style="margin-bottom: 70px;">
         Closing the gap. <br class="mbreak" />
         Creating value.
       </h1>
 
       <!-- Portrait Card -->
-      <div style="position: relative; display: flex; height: 230px; border: 1px solid #DCD3C2; border-radius: 4px; background: #EDE7D9; margin-bottom: 30px;">
+      <div style="position: relative; display: flex; height: 230px; border: 1px solid #B3A68E; border-radius: 4px; background: #EDE7D9; margin-bottom: 30px;">
         <!-- Portrait Layer -->
         <div style="position: absolute; inset: 0; pointer-events: none; clip-path: inset(-120px 0 0 0 round 0 0 4px 4px);">
           <img
             src="/portrait-cutout.png"
             alt="Pencil sketch of Dan McSpirit"
-            style="position: absolute; bottom: 0; right: -70px; height: 360px; width: auto; display: block;"
+            style="position: absolute; bottom: 0; right: -50px; height: 300px; width: auto; display: block;"
           />
         </div>
 
@@ -668,31 +668,31 @@ import MainLayout from '../layouts/MainLayout.astro';
   /* Responsive: 1200px and below */
   @media (max-width: 1200px) {
     h1 {
-      margin-bottom: 102px;
+      margin-bottom: 70px;
     }
 
-    [style*="right: -70px"] {
-      right: -40px !important;
+    [style*="right: -50px"] {
+      right: -20px !important;
     }
   }
 
   /* Responsive: 600px and below */
   @media (max-width: 600px) {
     h1 {
-      margin-bottom: 68px;
+      margin-bottom: 52px;
     }
 
     [style*="height: 230px"] {
-      height: 180px !important;
+      height: 170px !important;
     }
 
-    [style*="height: 360px"] {
-      height: 260px !important;
+    [style*="height: 300px"] {
+      height: 220px !important;
     }
 
-    [style*="right: -40px"],
-    [style*="right: -70px"] {
-      right: -80px !important;
+    [style*="right: -20px"],
+    [style*="right: -50px"] {
+      right: -50px !important;
     }
   }
 </style>
