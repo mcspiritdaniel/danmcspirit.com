@@ -11,31 +11,31 @@ import MainLayout from '../layouts/MainLayout.astro';
         <div class="metadata">Denver, Colorado</div>
       </div>
 
-      <h1 style="margin-bottom: 26px;">
+      <h1 style="margin-bottom: 102px;">
         Closing the gap. <br class="mbreak" />
         Creating value.
       </h1>
 
       <!-- Portrait Card -->
-      <div style="display: flex; height: 260px; border: 1px solid var(--rule); border-radius: 40px 40px 0 0; overflow: hidden; background: var(--paper-dark); margin-bottom: 30px;">
+      <div style="position: relative; display: flex; height: 230px; border: 1px solid #DCD3C2; border-radius: 4px; background: #EDE7D9; margin-bottom: 30px;">
+        <!-- Portrait Layer -->
+        <div style="position: absolute; inset: 0; pointer-events: none; clip-path: inset(-120px 0 0 0 round 0 0 4px 4px);">
+          <img
+            src="/portrait-cutout.png"
+            alt="Pencil sketch of Dan McSpirit"
+            style="position: absolute; bottom: 0; right: -70px; height: 360px; width: auto; display: block;"
+          />
+        </div>
+
+        <!-- Left Panel with Roles -->
         <div
-          style="position: relative; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px 18px 24px 22px;"
+          style="position: relative; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px 18px 24px 22px; z-index: 1;"
         >
           <div style="font-family: var(--font-serif); font-size: 20px; line-height: 1.16; color: #23426A; display: flex; flex-direction: column; gap: 4px;">
             <div>Investor</div>
             <div>Builder</div>
             <div>Teacher</div>
           </div>
-        </div>
-        <div
-          style="position: relative; flex: 0 0 58%; background: url('/portrait-sketch.png') center top / cover no-repeat;"
-        >
-          <div
-            style="position: absolute; inset: 0; background: linear-gradient(90deg, var(--paper-dark) 0%, rgba(237, 231, 217, 0) 27%);"
-          ></div>
-          <div
-            style="position: absolute; bottom: 0; left: 0; right: 0; height: 72px; background: linear-gradient(to bottom, rgba(237, 231, 217, 0) 0%, var(--paper-dark) 100%);"
-          ></div>
         </div>
       </div>
 
@@ -663,6 +663,37 @@ import MainLayout from '../layouts/MainLayout.astro';
 
   .pcard:hover {
     transform: translateY(-2px);
+  }
+
+  /* Responsive: 1200px and below */
+  @media (max-width: 1200px) {
+    h1 {
+      margin-bottom: 102px;
+    }
+
+    [style*="right: -70px"] {
+      right: -40px !important;
+    }
+  }
+
+  /* Responsive: 600px and below */
+  @media (max-width: 600px) {
+    h1 {
+      margin-bottom: 68px;
+    }
+
+    [style*="height: 230px"] {
+      height: 180px !important;
+    }
+
+    [style*="height: 360px"] {
+      height: 260px !important;
+    }
+
+    [style*="right: -40px"],
+    [style*="right: -70px"] {
+      right: -80px !important;
+    }
   }
 </style>
 
