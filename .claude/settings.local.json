@@ -7,7 +7,8 @@
       "Write",
       "Skill(run)",
       "Skill(run:*)",
-      "Skill(update-config)"
+      "Skill(update-config)",
+      "Bash(cp \"/Users/danmcspirit/.claude/uploads/de148add-bac1-4d5d-a0d3-fc734b5b26d0/1e9f6d4d-Dan_McSpirit_Otherwhere_Capital.pdf\" \"/Users/danmcspirit/Projects/danmcspirit.com/public/value-framework.pdf\" && ls -lh /Users/danmcspirit/Projects/danmcspirit.com/public/value-framework.pdf)"
     ]
   }
 }
