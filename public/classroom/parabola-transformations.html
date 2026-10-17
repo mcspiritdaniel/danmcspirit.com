@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Changing y = x²</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#fbfcfd; --paper:#ffffff; --grid:#dfe5ea; --grid-strong:#c3ccd4;
+  --ink:#16202a; --quiet:#56636f; --curve:#1d5fbf; --rise:#c8322b;
+  --chip:#eef2f5; --chip-on:#16202a; --chip-on-ink:#ffffff; --frame:#9aa6b0; --hl:#e8f0fb;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --board:#1e2b27; --paper:#24332e; --grid:#33463f; --grid-strong:#46605a;
+    --ink:#eef3ef; --quiet:#a9bab2; --curve:#8fc1ff; --rise:#ff8f7a;
+    --chip:#2c3d37; --chip-on:#eef3ef; --chip-on-ink:#1e2b27; --frame:#5b7169; --hl:#2c4250;
+  }
+}
+:root[data-theme="dark"]{
+  --board:#1e2b27; --paper:#24332e; --grid:#33463f; --grid-strong:#46605a;
+  --ink:#eef3ef; --quiet:#a9bab2; --curve:#8fc1ff; --rise:#ff8f7a;
+  --chip:#2c3d37; --chip-on:#eef3ef; --chip-on-ink:#1e2b27; --frame:#5b7169; --hl:#2c4250;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100%;background:var(--board);color:var(--ink);
+  font-family:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:18px;line-height:1.45}
+.wrap{max-width:1240px;margin:0 auto;padding:22px 24px 32px}
+header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 24px;margin-bottom:14px}
+h1{font-family:"Kalam","Comic Sans MS",cursive;font-weight:700;font-size:clamp(28px,4vw,44px);line-height:1.1;margin:0}
+.hint{color:var(--quiet);margin:0;font-size:17px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+button{font:inherit;color:inherit;cursor:pointer}
+.tab,.preset{border:1.5px solid var(--frame);background:var(--chip);border-radius:999px;padding:7px 16px;font-size:16px}
+.tab[aria-pressed="true"],.preset[aria-pressed="true"]{background:var(--chip-on);color:var(--chip-on-ink);border-color:var(--chip-on)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--curve);outline-offset:2px}
+.theme{background:none;border:1.5px solid var(--frame);border-radius:999px;padding:5px 12px;font-size:14px;color:var(--quiet)}
+.stage{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:860px){.stage{grid-template-columns:1fr}}
+.graph{background:var(--paper);border:2px solid var(--frame);border-radius:10px;padding:8px;max-width:100%}
+svg{display:block;width:100%;height:auto}
+.panel{display:flex;flex-direction:column;gap:18px}
+.box{background:var(--paper);border:2px solid var(--frame);border-radius:10px;padding:16px 20px}
+.box h2{font-size:17px;font-weight:700;color:var(--quiet);margin:0 0 8px}
+.eqline{font-size:clamp(26px,3vw,36px);font-weight:700;line-height:1.3;white-space:nowrap;min-height:1.3em}
+.eqline .ref{color:var(--quiet);font-weight:400;font-size:.62em;display:block;white-space:normal}
+.eqline .new{color:var(--curve)}
+.vertex{margin-top:6px;font-size:18px;color:var(--quiet);min-height:1.45em}
+.say{border-style:dashed}
+.say p{margin:0;font-family:"Kalam","Comic Sans MS",cursive;font-size:clamp(20px,2.2vw,26px);line-height:1.35;min-height:calc(5 * 1.35em)}
+.say b{color:var(--ink)}
+.tablewrap{margin-top:18px;overflow-x:auto;background:var(--paper);border:2px solid var(--frame);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-variant-numeric:tabular-nums;font-size:19px}
+th,td{border:1px solid var(--grid-strong);padding:7px 6px;text-align:center;width:11%}
+th:first-child,td:first-child{width:auto;text-align:left;padding-left:14px;font-weight:700;white-space:nowrap}
+thead th{background:var(--chip);font-weight:700}
+tr.newrow td{background:var(--hl);color:var(--curve);font-weight:700}
+.controls{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px}
+.controls .label{color:var(--quiet);font-size:16px}
+.slider{display:flex;align-items:center;gap:12px;flex:1 1 320px;min-width:260px}
+.slider input{flex:1;accent-color:var(--curve);height:28px}
+.slider output{font-weight:700;font-size:22px;min-width:3.2em;text-align:center;color:var(--curve);font-variant-numeric:tabular-nums}
+.foot{margin-top:12px;color:var(--quiet);font-size:14px}
+.credit{margin-top:20px;padding-top:12px;border-top:1px solid var(--grid-strong);color:var(--quiet);font-size:13px}
+.credit a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Changing y = x²</h1>
+      <p class="hint">Compare each new parabola with y = x². The red arrows show how each output changes.</p>
+    </div>
+    <div class="tabs" role="group" aria-label="Choose a change">
+      <button class="tab" data-mode="shift" aria-pressed="true">Shift up or down</button>
+      <button class="tab" data-mode="stretch" aria-pressed="false">Stretch, shrink or flip</button>
+      <button class="theme" id="theme" type="button">Whiteboard / chalkboard</button>
+    </div>
+  </header>
+
+  <div class="stage">
+    <div class="graph">
+      <svg id="svg" viewBox="0 0 680 460" role="img" aria-label="Graph of y = x squared and a changed parabola"></svg>
+    </div>
+    <div class="panel">
+      <section class="box" aria-live="polite">
+        <h2>The equations</h2>
+        <div class="eqline"><span class="ref">black: y = x²</span><span class="new" id="eq"></span></div>
+        <div class="vertex" id="vertex"></div>
+      </section>
+      <section class="box say">
+        <h2>Say it in a sentence</h2>
+        <p id="sentence"></p>
+      </section>
+    </div>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr id="xrow"></tr></thead>
+      <tbody><tr id="sqrow"></tr><tr class="newrow" id="newrow"></tr></tbody>
+    </table>
+  </div>
+
+  <div class="controls">
+    <span class="label">Examples:</span>
+    <span id="presets" style="display:contents"></span>
+    <label class="slider"><span class="label" id="slabel"></span>
+      <input type="range" id="range" min="0" max="1" step="1">
+      <output id="sval"></output>
+    </label>
+  </div>
+  <p class="foot" id="foot"></p>
+  <p class="credit">Examples adapted from Open Up Resources / Illustrative Mathematics materials, licensed under CC BY 4.0. Built by <a href="https://danmcspirit.com">Dan McSpirit</a> with Claude.</p>
+</div>
+
+<script>
+(function(){
+  const XS=[-3,-2,-1,0,1,2,3];
+  const minus = s => String(s).replace(/-/g,'−');
+  const num = v => minus(String(Number(v.toFixed(2))));
+  const FR = {'0.25':'¼','0.5':'½','-0.25':'−¼','-0.5':'−½'};
+  const aStr = a => FR[String(a)] ?? minus(String(a));
+
+  const MODES = {
+    shift:{
+      values:[-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10,11,12],
+      start:10, presets:[[10,'+10'],[-3,'−3']],
+      f:(v,x)=>x*x+v, yMin:-8, yMax:22, yStep:2,
+      label:'k =', show:v=>(v>0?'+':'')+minus(v),
+      eq:v=> v===0?'y = x²':'y = x² '+(v>0?'+ ':'− ')+Math.abs(v),
+      rowName:v=> v===0?'x²':'x² '+(v>0?'+ ':'− ')+Math.abs(v),
+      vertex:v=>'Vertex: (0, '+minus(v)+')',
+      say:v=>{
+        if(v===0) return 'Adding <b>0</b> changes nothing, so this is just <b>y = x²</b>.';
+        const n=Math.abs(v);
+        return v>0
+          ? 'Every output is <b>'+n+' more</b> than x², so the graph is the same parabola <b>shifted up '+n+'</b>.'
+          : 'Every output is <b>'+n+' less</b> than x², so the graph is the same parabola <b>shifted down '+n+'</b>.';
+      },
+      foot:'Adding a number moves every point up or down by the same amount, so the shape never changes.'
+    },
+    stretch:{
+      values:[-2,-1,-0.5,-0.25,0,0.25,0.5,1,2],
+      start:2, presets:[[2,'2x²'],[0.5,'½x²'],[-2,'−2x²']],
+      f:(v,x)=>v*x*x, yMin:-20, yMax:20, yStep:4,
+      label:'a =', show:v=>aStr(v),
+      eq:v=> v===1?'y = x²': v===-1?'y = −x²': v===0?'y = 0·x² = 0':'y = '+aStr(v)+'x²',
+      rowName:v=> v===1?'x²': v===-1?'−x²': v===0?'0·x²':aStr(v)+'x²',
+      vertex:v=> v===0?'No vertex: it is a flat line':'Vertex: (0, 0)',
+      say:v=>{
+        if(v===0) return 'Every output is <b>0</b>, so the parabola <b>flattens into the line y = 0</b>. That is why a quadratic needs a number other than 0 in front of x².';
+        if(v===1) return 'Multiplying by <b>1</b> changes nothing, so this is just <b>y = x²</b>.';
+        const n=Math.abs(v), s=aStr(n);
+        const shape = n>1?'rises <b>faster</b>, so it looks <b>narrower</b>': n<1?'rises <b>more slowly</b>, so it looks <b>wider</b>':'is the <b>same width</b> as x²';
+        if(v>0) return 'Every output is <b>'+s+' times</b> x². The parabola '+shape+'. The vertex stays at (0, 0).';
+        return 'Every output is the <b>opposite</b> of '+(n===1?'x²':s+'x²')+', so the parabola <b>flips to open downward</b>'+(n===1?'':' and '+shape.replace('rises','falls'))+'.';
+      },
+      foot:'Multiplying by a number scales every output. A negative number also flips the graph upside down.'
+    }
+  };
+
+  const svg=document.getElementById('svg'), NS='http://www.w3.org/2000/svg';
+  const L=60, R=650, T=20, B=410, XMIN=-4, XMAX=4;
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let mode='shift', M=MODES.shift, val=0, shown=0, anim=null, dyn={};
+  const X=x=>L+(x-XMIN)/(XMAX-XMIN)*(R-L);
+  const Y=y=>B-(y-M.yMin)/(M.yMax-M.yMin)*(B-T);
+  const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e;};
+
+  function pathFor(fn){
+    let d='', pen=false;
+    for(let i=0;i<=320;i++){
+      const x=XMIN+(XMAX-XMIN)*i/320, y=fn(x);
+      const yc=Math.max(M.yMin-2, Math.min(M.yMax+2, y));
+      d+=(pen?'L':'M')+X(x).toFixed(1)+','+Y(yc).toFixed(1); pen=true;
+    }
+    return d;
+  }
+
+  function drawStatic(){
+    svg.innerHTML='';
+    el('clipPath',{id:'clip'}); svg.lastChild.appendChild(document.createElementNS(NS,'rect'));
+    const cr=svg.querySelector('#clip rect'); cr.setAttribute('x',L);cr.setAttribute('y',T);cr.setAttribute('width',R-L);cr.setAttribute('height',B-T);
+    const g=el('g',{});
+    for(let x=XMIN;x<=XMAX;x++){
+      el('line',{x1:X(x),x2:X(x),y1:T,y2:B,stroke:'var(--grid)','stroke-width':1},g);
+      const t=el('text',{x:X(x),y:B+22,'text-anchor':'middle','font-size':15,fill:'var(--quiet)'},g); t.textContent=minus(x);
+    }
+    for(let y=M.yMin;y<=M.yMax;y+=M.yStep){
+      el('line',{x1:L,x2:R,y1:Y(y),y2:Y(y),stroke:'var(--grid)','stroke-width':1},g);
+      const t=el('text',{x:L-8,y:Y(y)+5,'text-anchor':'end','font-size':14,fill:'var(--quiet)'},g); t.textContent=minus(y);
+    }
+    el('line',{x1:L,x2:R,y1:Y(0),y2:Y(0),stroke:'var(--ink)','stroke-width':1.6},g);
+    el('line',{x1:X(0),x2:X(0),y1:T,y2:B,stroke:'var(--ink)','stroke-width':1.6},g);
+    const xl=el('text',{x:R-4,y:Y(0)-8,'text-anchor':'end','font-size':16,'font-style':'italic',fill:'var(--ink)'},g); xl.textContent='x';
+    const yl=el('text',{x:X(0)+8,y:T+16,'font-size':16,'font-style':'italic',fill:'var(--ink)'},g); yl.textContent='y';
+    const c=el('g',{'clip-path':'url(#clip)'});
+    el('path',{d:pathFor(x=>x*x),fill:'none',stroke:'var(--ink)','stroke-width':3},c);
+    dyn.arrows=el('g',{},c);
+    dyn.curve=el('path',{fill:'none',stroke:'var(--curve)','stroke-width':3.5,'stroke-linejoin':'round'},c);
+    dyn.dots=el('g',{},c);
+    XS.forEach(x=>el('circle',{cx:X(x),cy:Y(x*x),r:4.5,fill:'var(--ink)'},c));
+  }
+
+  function drawDynamic(v){
+    dyn.curve.setAttribute('d', pathFor(x=>M.f(v,x)));
+    dyn.arrows.innerHTML=''; dyn.dots.innerHTML='';
+    XS.forEach(x=>{
+      const y0=x*x, y1=M.f(v,x), px=X(x), p0=Y(y0), p1=Y(Math.max(M.yMin-1,Math.min(M.yMax+1,y1)));
+      if(Math.abs(p1-p0)>12){
+        const dir=p1<p0?-1:1, tip=p1-dir*6;
+        el('line',{x1:px,y1:p0+dir*6,x2:px,y2:tip,stroke:'var(--rise)','stroke-width':2.5},dyn.arrows);
+        el('polygon',{points:[px,p1-dir*1, px-6,tip-dir*4, px+6,tip-dir*4].join(' '),fill:'var(--rise)'},dyn.arrows);
+      }
+      if(y1>=M.yMin && y1<=M.yMax) el('circle',{cx:px,cy:Y(y1),r:5,fill:'var(--curve)'},dyn.dots);
+    });
+  }
+
+  function buildTable(){
+    document.getElementById('xrow').innerHTML='<th>x</th>'+XS.map(x=>'<th>'+minus(x)+'</th>').join('');
+    document.getElementById('sqrow').innerHTML='<td>x²</td>'+XS.map(x=>'<td>'+(x*x)+'</td>').join('');
+  }
+
+  function text(v){
+    document.getElementById('eq').textContent=M.eq(v);
+    document.getElementById('vertex').textContent=M.vertex(v);
+    document.getElementById('sentence').innerHTML=M.say(v);
+    document.getElementById('newrow').innerHTML='<td>'+M.rowName(v)+'</td>'+XS.map(x=>'<td>'+num(M.f(v,x))+'</td>').join('');
+    document.getElementById('sval').textContent=M.show(v);
+    document.getElementById('range').value=M.values.indexOf(v);
+    document.querySelectorAll('.preset').forEach(b=>b.setAttribute('aria-pressed', String(Number(b.dataset.v)===v)));
+  }
+
+  function go(v, ms){
+    val=v; text(v);
+    if(anim) cancelAnimationFrame(anim);
+    const from=shown;
+    if(reduce || !ms){ shown=v; drawDynamic(v); return; }
+    const t0=performance.now();
+    const step=now=>{
+      const k=Math.min(1,(now-t0)/ms), e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+      shown=from+(v-from)*e; drawDynamic(shown);
+      if(k<1) anim=requestAnimationFrame(step); else { anim=null; shown=v; drawDynamic(v); }
+    };
+    anim=requestAnimationFrame(step);
+  }
+
+  function load(m){
+    mode=m; M=MODES[m];
+    drawStatic(); buildTable();
+    const pr=document.getElementById('presets'); pr.innerHTML='';
+    M.presets.forEach(([v,name])=>{
+      const b=document.createElement('button'); b.className='preset'; b.type='button'; b.dataset.v=v;
+      b.textContent=m==='shift'?'y = x² '+(v>0?'+ ':'− ')+Math.abs(v):'y = '+name;
+      b.addEventListener('click',()=>go(v,700)); pr.appendChild(b);
+    });
+    const r=document.getElementById('range'); r.max=M.values.length-1;
+    document.getElementById('slabel').textContent=M.label;
+    document.getElementById('foot').textContent=M.foot;
+    document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-pressed',String(t.dataset.mode===m)));
+    shown=m==='shift'?0:1;            // start from plain y = x², then glide to the first example
+    drawDynamic(shown);
+    go(M.start, 900);
+  }
+
+  document.getElementById('range').addEventListener('input',e=>go(M.values[Number(e.target.value)],260));
+  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>load(t.dataset.mode)));
+  document.getElementById('theme').addEventListener('click',()=>{
+    const root=document.documentElement;
+    const dark=root.dataset.theme?root.dataset.theme==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme=dark?'light':'dark';
+    try{localStorage.setItem('pt-theme',root.dataset.theme);}catch(e){}
+  });
+  try{const t=localStorage.getItem('pt-theme'); if(t) document.documentElement.dataset.theme=t;}catch(e){}
+  load('shift');
+})();
+</script>
+</body>
+</html>

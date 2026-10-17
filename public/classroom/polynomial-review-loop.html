@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Polynomial review: looping tutorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#fbfcfd; --paper:#ffffff; --grid:#dfe5ea; --grid-strong:#c3ccd4;
+  --ink:#16202a; --quiet:#56636f; --curve:#1d5fbf; --rise:#c8322b; --like:#e2ecfa; --flip:#fbe4e1;
+  --chip:#eef2f5; --chip-on:#16202a; --chip-on-ink:#ffffff; --frame:#9aa6b0;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --board:#1e2b27; --paper:#24332e; --grid:#33463f; --grid-strong:#46605a;
+    --ink:#eef3ef; --quiet:#a9bab2; --curve:#8fc1ff; --rise:#ff8f7a; --like:#2c4250; --flip:#4a2f2c;
+    --chip:#2c3d37; --chip-on:#eef3ef; --chip-on-ink:#1e2b27; --frame:#5b7169;
+  }
+}
+:root[data-theme="dark"]{
+  --board:#1e2b27; --paper:#24332e; --grid:#33463f; --grid-strong:#46605a;
+  --ink:#eef3ef; --quiet:#a9bab2; --curve:#8fc1ff; --rise:#ff8f7a; --like:#2c4250; --flip:#4a2f2c;
+  --chip:#2c3d37; --chip-on:#eef3ef; --chip-on-ink:#1e2b27; --frame:#5b7169;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100%;background:var(--board);color:var(--ink);
+  font-family:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:18px;line-height:1.4}
+.wrap{max-width:1280px;margin:0 auto;padding:18px 24px 26px}
+header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 24px;margin-bottom:12px}
+h1{font-family:"Kalam","Comic Sans MS",cursive;font-weight:700;font-size:clamp(26px,3.6vw,40px);line-height:1.1;margin:0}
+.theme{font:inherit;background:none;border:1.5px solid var(--frame);border-radius:999px;padding:5px 12px;font-size:14px;color:var(--quiet);cursor:pointer}
+
+.stage{position:relative;aspect-ratio:16/9;width:100%;container-type:inline-size;background:var(--paper);
+  border:2px solid var(--frame);border-radius:12px;overflow:hidden}
+.scene{position:absolute;inset:0;padding:2.6cqw 4cqw 2.4cqw;display:flex;flex-direction:column;gap:1.4cqw}
+.s-num{font-size:1.6cqw;color:var(--quiet);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.s-title{font-family:"Kalam","Comic Sans MS",cursive;font-weight:700;font-size:3.6cqw;line-height:1.1;margin-top:-.6cqw}
+.expr{font-size:4cqw;font-weight:700;white-space:nowrap}
+.caption{font-size:2.5cqw;line-height:1.3;min-height:2.6em;color:var(--ink)}
+.caption b{color:var(--rise)}
+.answer{font-size:4.2cqw;font-weight:700;margin-top:auto;padding:.6cqw 1.6cqw;border:.3cqw solid var(--ink);border-radius:1cqw;align-self:flex-start}
+.fade{opacity:0;transform:translateY(.8cqw);transition:opacity .5s ease, transform .5s ease}
+.fade.on{opacity:1;transform:none}
+
+/* scene 1: area model */
+.s1body{display:flex;align-items:center;gap:4cqw}
+.grid{display:grid;grid-template-columns:5cqw 13cqw 13cqw;grid-template-rows:4cqw 7.5cqw 7.5cqw}
+.lab{display:flex;align-items:center;justify-content:center;font-size:3.2cqw;font-weight:700;color:var(--curve)}
+.cell{display:flex;align-items:center;justify-content:center;font-size:3.4cqw;border:.25cqw solid var(--ink);margin:-.125cqw;background:var(--paper);transition:background .5s ease}
+.cell span{opacity:0;transform:scale(.6);transition:opacity .4s ease, transform .4s ease}
+.cell.on span{opacity:1;transform:none}
+.cell.like{background:var(--like)}
+.s1cap{flex:1}
+
+/* scene 2: subtracting */
+.line2{font-size:3.4cqw;white-space:nowrap;min-height:1.3em}
+.line2 .t{display:inline-block;opacity:0;transition:opacity .4s ease}
+.line2 .t.on{opacity:1}
+.flipt{color:var(--rise);background:var(--flip);border-radius:.6cqw;padding:0 .4cqw}
+.minus{display:inline-block;border-radius:.6cqw;padding:0 .3cqw;transition:background .4s ease,color .4s ease}
+.minus.hot{background:var(--flip);color:var(--rise)}
+.cols{display:grid;grid-template-columns:repeat(4,12cqw);font-size:3.2cqw;text-align:center;font-variant-numeric:tabular-nums}
+.cols div{padding:.5cqw 0}
+.cols .h{font-size:1.9cqw;color:var(--quiet);font-weight:700;border-bottom:.2cqw solid var(--grid-strong)}
+.cols .sum{font-weight:700;border-top:.25cqw solid var(--ink)}
+.cols .r2{color:var(--rise)}
+
+/* scene 3: like terms */
+.area{position:relative;flex:1;min-height:0}
+.tile{position:absolute;transform:translate(-50%,-50%);font-size:3.6cqw;font-weight:700;padding:.5cqw 1.4cqw;border-radius:1cqw;
+  border:.25cqw solid var(--ink);background:var(--paper);white-space:nowrap;
+  transition:left 1s cubic-bezier(.5,0,.2,1), top 1s cubic-bezier(.5,0,.2,1), opacity .5s ease, background .5s ease}
+.tile.res{border-color:var(--curve);color:var(--curve)}
+.bin{position:absolute;top:50%;height:46%;width:28%;transform:translateX(-50%);border:.25cqw dashed var(--frame);border-radius:1.2cqw;transition:opacity .5s ease}
+.pop{opacity:0}
+.pop.on{opacity:1}
+.bin .bl{position:absolute;bottom:.8cqw;left:0;right:0;text-align:center;font-size:2cqw;color:var(--quiet);font-weight:700}
+
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:12px}
+.btn{font:inherit;font-size:16px;border:1.5px solid var(--frame);background:var(--chip);color:var(--ink);border-radius:999px;padding:7px 16px;cursor:pointer}
+.btn:focus-visible{outline:3px solid var(--curve);outline-offset:2px}
+.dots{display:flex;gap:8px;flex-wrap:wrap}
+.dot{font:inherit;font-size:15px;border:1.5px solid var(--frame);background:none;color:var(--quiet);border-radius:999px;padding:5px 12px;cursor:pointer}
+.dot[aria-current="true"]{background:var(--chip-on);color:var(--chip-on-ink);border-color:var(--chip-on)}
+.bar{flex:1 1 200px;height:6px;background:var(--grid);border-radius:3px;overflow:hidden;min-width:120px}
+.bar i{display:block;height:100%;width:0;background:var(--curve)}
+.foot{margin-top:8px;color:var(--quiet);font-size:14px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.credit{margin-top:20px;padding-top:12px;border-top:1px solid var(--grid-strong);color:var(--quiet);font-size:13px}
+.credit a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Polynomial review</h1>
+    <button class="theme" id="theme" type="button">Whiteboard / chalkboard</button>
+  </header>
+  <div class="stage" id="stage" aria-live="polite"></div>
+  <div class="controls">
+    <button class="btn" id="prev" type="button">◀ Back</button>
+    <button class="btn" id="play" type="button">Pause</button>
+    <button class="btn" id="next" type="button">Next ▶</button>
+    <div class="dots" id="dots"></div>
+    <div class="bar"><i id="bar"></i></div>
+  </div>
+  <p class="foot">Plays on a loop. Click a scene name to jump to it, or Pause to hold a step on screen.</p>
+  <p class="credit">Example problems adapted from Open Up Resources / Illustrative Mathematics materials, licensed under CC BY 4.0. Built by <a href="https://danmcspirit.com">Dan McSpirit</a> with Claude.</p>
+</div>
+
+<script>
+(function(){
+  const stage=document.getElementById('stage');
+  const h=(tag,cls,html)=>{const e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;};
+  const on=e=>e.classList.add('on');
+
+  function header(sc,n,title){
+    sc.append(h('div','s-num','Step '+n+' of 3'), h('div','s-title',title));
+  }
+
+  const SCENES=[
+    {name:'Distributing', dur:17000, build(sc){
+      header(sc,1,'Distributing: every term times every term');
+      const ex=h('div','expr fade','(x + 2)(x − 5)'); sc.append(ex);
+      const body=h('div','s1body'); sc.append(body);
+      const g=h('div','grid'); body.append(g);
+      const labs={}, cells={};
+      [['','',''],['t1','x',''],['t2','−5','']].forEach(()=>{});
+      const order=[['blank',''],['top1','x'],['top2','−5'],['side1','x'],['c11','x²'],['c12','−5x'],['side2','+2'],['c21','2x'],['c22','−10']];
+      order.forEach(([k,v])=>{
+        if(k==='blank'){ g.append(h('div','')); return; }
+        if(k.startsWith('c')){ const c=h('div','cell','<span>'+v+'</span>'); cells[k]=c; g.append(c); }
+        else { const l=h('div','lab fade',v); labs[k]=l; g.append(l); }
+      });
+      const cap=h('div','caption s1cap',''); body.append(cap);
+      const ans=h('div','answer fade','= x² − 3x − 10'); sc.append(ans);
+      const say=t=>()=>{cap.innerHTML=t;};
+      return [
+        [0,()=>on(ex)],
+        [1200,()=>Object.values(labs).forEach(on)],
+        [1200,say('Write each factor\'s terms on the sides.<br>Keep each sign with its term: <b>−5</b>, not 5.')],
+        [3600,()=>on(cells.c11)],[3600,say('x · x = <b>x²</b>')],
+        [5200,()=>on(cells.c12)],[5200,say('x · (−5) = <b>−5x</b>')],
+        [6800,()=>on(cells.c21)],[6800,say('2 · x = <b>2x</b>')],
+        [8400,()=>on(cells.c22)],[8400,say('2 · (−5) = <b>−10</b>')],
+        [10200,()=>{cells.c12.classList.add('like');cells.c21.classList.add('like');}],
+        [10200,say('Like terms sit on a diagonal:<br>−5x + 2x = <b>−3x</b>')],
+        [12400,()=>on(ans)],[12400,say('Add up the boxes. Four boxes, four products.')]
+      ];
+    }},
+    {name:'Subtracting', dur:17000, build(sc){
+      header(sc,2,'Subtracting: the minus sign hits every term');
+      const ex=h('div','expr fade','(8x³ + 4x² − 6x + 1) <span class="minus">−</span> (5x³ + 2x − 9)'); sc.append(ex);
+      const mn=ex.querySelector('.minus');
+      const terms=['8x³ + 4x² − 6x + 1','<span class="flipt">− 5x³</span>','<span class="flipt">− 2x</span>','<span class="flipt">+ 9</span>'];
+      const l2=h('div','line2','= '+terms.map((t,i)=>'<span class="t" data-i="'+i+'">'+t+'</span>').join(' ')); sc.append(l2);
+      const ts=[...l2.querySelectorAll('.t')];
+      l2.firstChild.textContent='';
+      const cols=h('div','cols fade',
+        ['x³','x²','x','number'].map(t=>'<div class="h">'+t+'</div>').join('')+
+        ['8x³','4x²','−6x','+1'].map(t=>'<div>'+t+'</div>').join('')+
+        ['−5x³','','−2x','+9'].map(t=>'<div class="r2 fade">'+t+'</div>').join('')+
+        ['3x³','4x²','−8x','+10'].map(t=>'<div class="sum fade">'+t+'</div>').join(''));
+      const cap=h('div','caption',''); sc.append(cap);
+      const ans=h('div','answer fade','= 3x³ + 4x² − 8x + 10'); sc.append(ans);
+      const say=t=>()=>{cap.innerHTML=t;};
+      const show2=i=>()=>{ if(i===0) l2.firstChild.textContent='= '; on(ts[i]); };
+      return [
+        [0,()=>on(ex)],
+        [1200,()=>mn.classList.add('hot')],[1200,say('This minus sign applies to <b>every</b> term inside the parentheses.')],
+        [2800,show2(0)],
+        [3600,show2(1)],[3600,say('5x³ becomes <b>−5x³</b>')],
+        [4800,show2(2)],[4800,say('+2x becomes <b>−2x</b>')],
+        [6000,show2(3)],[6000,say('−9 becomes <b>+9</b>. Every sign flips.')],
+        [7800,()=>{ l2.replaceWith(cols); on(cols); }],[7800,say('Line up like terms in columns.')],
+        [8800,()=>cols.querySelectorAll('.r2').forEach(on)],
+        [10400,()=>cols.querySelectorAll('.sum').forEach(on)],[10400,say('Combine each column. 4x² has no partner, so it stays.')],
+        [12400,()=>on(ans)],[12400,say('Only subtracting the first term, or mixing columns, gives a wrong answer.')]
+      ];
+    }},
+    {name:'Like terms', dur:16000, build(sc){
+      header(sc,3,'Like terms: same variable, same power');
+      const area=h('div','area'); sc.append(area);
+      const bins=[[17,'x² terms'],[50,'x terms'],[83,'numbers']].map(([x,l])=>{
+        const b=h('div','bin pop','<div class="bl">'+l+'</div>'); b.style.left=x+'%'; area.append(b); return b; });
+      const T=[['3x²',12,16,0],['−5x',33,32,1],['7',55,14,2],['−2x²',72,32,0],['4x',88,14,1],['−1',50,34,2]];
+      const tiles=T.map(([t,x,y])=>{ const e=h('div','tile pop',t); e.style.left=x+'%'; e.style.top=y+'%'; area.append(e); return e; });
+      const binX=[17,50,83], seen=[0,0,0];
+      const target=T.map(([, , ,b])=>{ const k=seen[b]++; return [binX[b]+(k?6.5:-6.5), 68]; });
+      const res=[['x²',17],['−x',50],['6',83]].map(([t,x])=>{ const e=h('div','tile res pop',t); e.style.left=x+'%'; e.style.top='68%'; area.append(e); return e; });
+      const cap=h('div','caption',''); sc.append(cap);
+      const ans=h('div','answer fade','Simplified: x² − x + 6'); sc.append(ans);
+      const say=t=>()=>{cap.innerHTML=t;};
+      const move=b=>()=>T.forEach((r,i)=>{ if(r[3]===b){ tiles[i].style.left=target[i][0]+'%'; tiles[i].style.top=target[i][1]+'%'; } });
+      return [
+        [0,()=>tiles.forEach(on)],[0,say('3x² − 5x + 7 − 2x² + 4x − 1: which terms can be combined?')],
+        [1800,()=>bins.forEach(on)],
+        [2800,move(0)],[2800,say('3x² and −2x²: same variable, same power.')],
+        [4400,move(1)],[4400,say('−5x and 4x: both just x.')],
+        [6000,move(2)],[6000,say('7 and −1: plain numbers.')],
+        [7800,()=>{ tiles.forEach(t=>t.style.opacity=0); res.forEach(on); }],
+        [7800,say('3x² − 2x² = <b>x²</b> &nbsp; · &nbsp; −5x + 4x = <b>−x</b> &nbsp; · &nbsp; 7 − 1 = <b>6</b>')],
+        [10200,()=>on(ans)],[10200,say('x² and x are different kinds of terms, so they stay separate.')]
+      ];
+    }}
+  ];
+
+  // ---- player: a clock that only advances while playing ----
+  let idx=0, steps=[], next=0, clock=0, playing=true, last=null;
+  const bar=document.getElementById('bar'), playBtn=document.getElementById('play');
+  const dots=document.getElementById('dots');
+  SCENES.forEach((s,i)=>{ const d=h('button','dot',(i+1)+'. '+s.name); d.type='button'; d.addEventListener('click',()=>start(i)); dots.append(d); });
+
+  function start(i){
+    idx=(i+SCENES.length)%SCENES.length;
+    stage.innerHTML=''; const sc=h('section','scene'); stage.append(sc);
+    steps=SCENES[idx].build(sc).sort((a,b)=>a[0]-b[0]); next=0; clock=0;
+    [...dots.children].forEach((d,k)=>d.setAttribute('aria-current',String(k===idx)));
+    // let the new nodes paint before the first transition fires
+    requestAnimationFrame(()=>requestAnimationFrame(()=>run(0)));
+  }
+  function run(dt){
+    clock+=dt;
+    while(next<steps.length && steps[next][0]<=clock){ steps[next][1](); next++; }
+    bar.style.width=Math.min(100,clock/SCENES[idx].dur*100)+'%';
+    if(clock>=SCENES[idx].dur) start(idx+1);
+  }
+  function tick(now){
+    if(last!=null && playing) run(Math.min(100,now-last));
+    last=now; requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  playBtn.addEventListener('click',()=>{ playing=!playing; playBtn.textContent=playing?'Pause':'Play'; });
+  document.getElementById('prev').addEventListener('click',()=>start(idx-1));
+  document.getElementById('next').addEventListener('click',()=>start(idx+1));
+  document.addEventListener('keydown',e=>{
+    if(e.target.closest('button')&&e.key===' ') return;
+    if(e.key===' '){ e.preventDefault(); playBtn.click(); }
+    if(e.key==='ArrowRight') start(idx+1);
+    if(e.key==='ArrowLeft') start(idx-1);
+  });
+  document.getElementById('theme').addEventListener('click',()=>{
+    const root=document.documentElement;
+    const dark=root.dataset.theme?root.dataset.theme==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme=dark?'light':'dark';
+    try{localStorage.setItem('pr-theme',root.dataset.theme);}catch(e){}
+  });
+  try{const t=localStorage.getItem('pr-theme'); if(t) document.documentElement.dataset.theme=t;}catch(e){}
+  start(0);
+})();
+</script>
+</body>
+</html>

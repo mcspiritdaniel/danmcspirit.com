@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Interactive Math Lessons · Dan McSpirit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Kalam:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--board:#fbfcfd;--paper:#fff;--ink:#16202a;--quiet:#56636f;--frame:#9aa6b0;--curve:#1d5fbf;--grid-strong:#c3ccd4;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--board:#1e2b27;--paper:#24332e;--ink:#eef3ef;--quiet:#a9bab2;--frame:#5b7169;--curve:#8fc1ff;--grid-strong:#46605a}}
+:root[data-theme="dark"]{--board:#1e2b27;--paper:#24332e;--ink:#eef3ef;--quiet:#a9bab2;--frame:#5b7169;--curve:#8fc1ff;--grid-strong:#46605a}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--board);color:var(--ink);font-family:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:18px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:36px 24px 40px}
+h1{font-family:"Kalam","Comic Sans MS",cursive;font-size:clamp(30px,5vw,46px);line-height:1.1;margin:0 0 8px}
+p.lead{color:var(--quiet);margin:0 0 26px}
+a.card{display:block;text-decoration:none;color:inherit;background:var(--paper);border:2px solid var(--frame);border-radius:12px;padding:18px 22px;margin-bottom:14px}
+a.card:hover,a.card:focus-visible{border-color:var(--curve);outline:none}
+a.card h2{margin:0 0 4px;font-size:21px;color:var(--curve)}
+a.card p{margin:0;color:var(--quiet);font-size:16.5px}
+.credit{margin-top:24px;padding-top:12px;border-top:1px solid var(--grid-strong);color:var(--quiet);font-size:13px}
+.credit a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Interactive Math Lessons</h1>
+  <p class="lead">Teaching tools for Integrated Math 1 and 2. Each one runs as a single file, so it works on a classroom projector with or without an internet connection.</p>
+  <a class="card" href="rate-of-change.html"><h2>Average rate of change</h2><p>Drag two points on a graph and watch the rate of change, and a sentence describing it, update live.</p></a>
+  <a class="card" href="parabola-transformations.html"><h2>Changing y = x²</h2><p>Shift, stretch, shrink and flip a parabola, with arrows and a table showing how every output changes.</p></a>
+  <a class="card" href="polynomial-review-loop.html"><h2>Polynomial review</h2><p>A looping walkthrough of distributing, subtracting polynomials and combining like terms.</p></a>
+  <p class="credit">Problems adapted from Illustrative Mathematics and Open Up Resources materials, licensed under CC BY 4.0. Built by <a href="https://danmcspirit.com">Dan McSpirit</a> with Claude.</p>
+</div>
+</body>
+</html>
