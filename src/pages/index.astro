@@ -287,8 +287,7 @@ import MainLayout from '../layouts/MainLayout.astro';
                 </p>
                 <div class="model-buttons">
                   <a href="/models/IREN_Scenario-Valuation_v1.0_2026-11.xlsx" download class="model-btn model-btn-secondary">Download Excel (.xlsx)</a>
-                  <!-- Placeholder until the Google Sheets copy URL is supplied -->
-                  <a href="#sheets-placeholder" class="model-btn model-btn-secondary" aria-disabled="true">Open in Google Sheets (make a copy)</a>
+                  <a href="https://docs.google.com/spreadsheets/d/1W1fQsnQDAY26s1i2K9Ai5kwZKnDUtAxK/copy" target="_blank" class="model-btn model-btn-secondary">Open in Google Sheets (make a copy)</a>
                   <a href="/neoclouds-getting-to-the-other-side.pdf" target="_blank" class="model-btn model-btn-secondary">Analysis</a>
                 </div>
               </div>
@@ -1218,13 +1217,6 @@ import MainLayout from '../layouts/MainLayout.astro';
 
   .model-btn-secondary:hover {
     background: #f5f3f0;
-  }
-
-  .model-btn-secondary[aria-disabled="true"] {
-    border-style: dashed;
-    opacity: 0.7;
-    pointer-events: none;
-    cursor: default;
   }
 </style>
 

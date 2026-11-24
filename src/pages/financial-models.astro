@@ -39,8 +39,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 
           <div class="button-row">
             <a href="/models/IREN_Scenario-Valuation_v1.0_2026-11.xlsx" download class="btn btn-primary">Download Excel (.xlsx)</a>
-            <!-- Placeholder until the Google Sheets copy URL is supplied -->
-            <a href="#sheets-placeholder" class="btn btn-secondary" aria-disabled="true">Open in Google Sheets (make a copy)</a>
+            <a href="https://docs.google.com/spreadsheets/d/1W1fQsnQDAY26s1i2K9Ai5kwZKnDUtAxK/copy" target="_blank" class="btn btn-secondary">Open in Google Sheets (make a copy)</a>
           </div>
 
           <div class="link-row">
@@ -108,13 +107,6 @@ import MainLayout from '../layouts/MainLayout.astro';
 
   .btn-secondary:hover {
     background: #f5f3f0;
-  }
-
-  .btn-secondary[aria-disabled="true"] {
-    border-style: dashed;
-    cursor: default;
-    pointer-events: none;
-    opacity: 0.7;
   }
 
   .link-row {
