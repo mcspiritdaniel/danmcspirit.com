@@ -1,0 +1,143 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Financial Models - Dan McSpirit">
+  <div id="shell">
+    <!-- IDENTITY COLUMN -->
+    <aside class="col col-identity">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 30px;">
+        <div class="name">Dan McSpirit</div>
+        <div class="metadata">Denver, Colorado</div>
+      </div>
+
+      <h1 style="margin-bottom: 20px;">
+        Financial Models
+      </h1>
+
+      <p style="margin-bottom: 28px; color: var(--faint); font-size: 14px;">
+        Downloadable models behind the published analysis. Change the inputs; the results update.
+      </p>
+
+      <div class="divider"></div>
+
+      <a href="/" class="lnk" style="display: inline-block; margin-top: 24px; font-size: 13px;">← Back to portfolio</a>
+
+      <div style="height: 46px;"></div>
+      <div class="scrollfade"></div>
+    </aside>
+
+    <!-- MODEL COLUMN -->
+    <section class="col col-projects">
+      <div class="pad">
+        <div class="model-entry">
+          <h2 class="project-title" style="margin-bottom: 16px;">IREN · Scenario Valuation · v1.0, Nov 2026</h2>
+
+          <p class="pcard-body" style="margin-bottom: 24px;">
+            The Excel model behind <a href="/neoclouds-getting-to-the-other-side.pdf" target="_blank" class="inline-link">“Getting to the Other Side”</a> (Nov 22, 2026). Three scenarios to end-2031, from ~$0 to ~$145–173 a share today, with a range rather than a point estimate. A handful of assumptions drive the value; change them and the results update.
+          </p>
+
+          <div class="button-row">
+            <a href="/models/IREN_Scenario-Valuation_v1.0_2026-11.xlsx" download class="btn btn-primary">Download Excel (.xlsx)</a>
+            <!-- Placeholder until the Google Sheets copy URL is supplied -->
+            <a href="#sheets-placeholder" class="btn btn-secondary" aria-disabled="true">Open in Google Sheets (make a copy)</a>
+          </div>
+
+          <div class="link-row">
+            <a href="/neoclouds-getting-to-the-other-side.pdf" target="_blank" class="lnk">Read the analysis</a>
+            <a href="/models/IREN_Model-Release_2026-11.pdf" target="_blank" class="lnk">Slide summary</a>
+          </div>
+
+          <p class="disclaimer">
+            No position in IREN. Not investment advice. Values are what each scenario is worth if it plays out, not forecasts or price targets.
+          </p>
+        </div>
+      </div>
+
+      <div class="scrollfade"></div>
+    </section>
+  </div>
+</MainLayout>
+
+<style>
+  .divider {
+    height: 1px;
+    background: var(--rule);
+    margin: 40px 0;
+  }
+
+  .model-entry {
+    max-width: 640px;
+  }
+
+  .inline-link {
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--navy);
+  }
+
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    padding: 13px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+    border: 1px solid var(--navy);
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .btn-primary {
+    background: var(--navy);
+    color: var(--paper-light);
+  }
+
+  .btn-primary:hover {
+    background: #1B3558;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--navy);
+  }
+
+  .btn-secondary:hover {
+    background: #f5f3f0;
+  }
+
+  .btn-secondary[aria-disabled="true"] {
+    border-style: dashed;
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .link-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin-bottom: 40px;
+  }
+
+  .link-row .lnk {
+    font-size: 17px;
+  }
+
+  .disclaimer {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--faint);
+    padding-top: 20px;
+    border-top: 1px solid var(--rule-light);
+  }
+</style>
