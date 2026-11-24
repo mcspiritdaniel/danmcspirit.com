@@ -281,7 +281,6 @@ import MainLayout from '../layouts/MainLayout.astro';
                   <a href="/financial-models" style="text-decoration: none; color: inherit;">
                     <h2 class="project-title">IREN · Scenario Valuation · v1.0, Nov 2026</h2>
                   </a>
-                  <a href="/financial-models" class="lnk" style="font-size: 11px; display: inline-block; margin-bottom: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">view ↗</a>
                 </div>
                 <p class="pcard-body" style="margin-bottom: 12px;">
                   The Excel model behind “Getting to the Other Side” (Nov 22, 2026). Three scenarios to end-2031, from ~$0 to ~$145–173 a share today, with a range rather than a point estimate. A handful of assumptions drive the value; change them and the results update.
@@ -290,9 +289,7 @@ import MainLayout from '../layouts/MainLayout.astro';
                   <a href="/models/IREN_Scenario-Valuation_v1.0_2026-11.xlsx" download class="model-btn model-btn-primary">Download Excel (.xlsx)</a>
                   <!-- Placeholder until the Google Sheets copy URL is supplied -->
                   <a href="#sheets-placeholder" class="model-btn model-btn-secondary" aria-disabled="true">Open in Google Sheets (make a copy)</a>
-                </div>
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                  <span class="tag">ms excel</span>
+                  <a href="/neoclouds-getting-to-the-other-side.pdf" target="_blank" class="model-btn model-btn-secondary">Analysis</a>
                 </div>
               </div>
             </div>
@@ -1195,10 +1192,10 @@ import MainLayout from '../layouts/MainLayout.astro';
   .model-btn {
     display: inline-block;
     font-family: var(--font-sans);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     line-height: 1;
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-radius: 3px;
     text-decoration: none;
     border: 1px solid var(--navy);
