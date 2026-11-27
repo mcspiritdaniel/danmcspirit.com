@@ -235,7 +235,7 @@ import MainLayout from '../layouts/MainLayout.astro';
                   </a>
                   <a href="/methodology-and-process.pdf" target="_blank" class="lnk" style="font-size: 11px; display: inline-block; margin-bottom: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">view ↗</a>
                 </div>
-                <p class="pcard-body" style="margin-bottom: 12px;">
+                <p class="pcard-body">
                   AI made building a valuation model cheap, and made checking it the job. This is how I work with Claude, from framing what a price already assumes to shipping a live model a reader can challenge, with a human call at every step. In a model, the second-worst outcome is a wrong number. The worst is a right number removed on purpose.
                 </p>
               </div>
@@ -247,7 +247,7 @@ import MainLayout from '../layouts/MainLayout.astro';
                   </a>
                   <a href="/sbet-build-process.pdf" target="_blank" class="lnk" style="font-size: 11px; display: inline-block; margin-bottom: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">view ↗</a>
                 </div>
-                <p class="pcard-body" style="margin-bottom: 12px;">
+                <p class="pcard-body">
                   An account of building an institutional-grade valuation model with AI, and of the eight times it was wrong. Not one was an arithmetic error. Every one was a claim about the output — a stale figure from an earlier build, a crossed reference, a share basis that didn't match the line beside it. What caught them was a regression harness, a second AI system with no stake in the first one's conclusions, and review. The work didn't shrink; it moved from construction to verification.
                 </p>
               </div>
@@ -259,7 +259,7 @@ import MainLayout from '../layouts/MainLayout.astro';
                   </a>
                   <a href="/value-framework.pdf" target="_blank" class="lnk" style="font-size: 11px; display: inline-block; margin-bottom: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">view ↗</a>
                 </div>
-                <p class="pcard-body" style="margin-bottom: 12px;">
+                <p class="pcard-body">
                   The principles that guide my work as an investor and builder. How capital allocation determines whether value gets created or destroyed. Price vs value, leverage, risk, verification, and why the discipline of the work matters more than getting lucky.
                 </p>
               </div>
@@ -304,7 +304,7 @@ import MainLayout from '../layouts/MainLayout.astro';
               </div>
 
               <div class="project-item" style="border-bottom: 1px solid var(--rule-light); margin-bottom: 24px; padding-bottom: 24px;">
-                <p class="pcard-body" style="margin-bottom: 12px;">
+                <p class="pcard-body">
                   The Excel model behind “Getting to the Other Side” (Nov 22, 2026). Three scenarios to end-2031, each giving a range of values today rather than a point estimate. A handful of assumptions drive the value; change them and the results update.<br><em>v1.1 (Dec 2026): capex already spent by Sep 30 is no longer charged twice. Details in the version history.</em>
                 </p>
               </div>
@@ -316,7 +316,7 @@ import MainLayout from '../layouts/MainLayout.astro';
                   </a>
                   <a href="/financial-models" class="lnk" style="font-size: 11px; display: inline-block; margin-bottom: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">Download ↗</a>
                 </div>
-                <p class="pcard-body" style="margin-bottom: 12px;">
+                <p class="pcard-body">
                   The Excel model behind my ETH series (Nov 2026), valuing ETH through three lenses: fees, the bond (staking security) and the money (share of the gold and bitcoin premium). Fees alone fall short of today's ~$1,700 in every scenario; the bond and money lenses can support it, but only if usage on Ethereum compounds for years and ETH keeps gaining on gold and bitcoin. A handful of assumptions drive the value; change them and the results update.
                 </p>
               </div>
@@ -328,7 +328,7 @@ import MainLayout from '../layouts/MainLayout.astro';
                   </a>
                   <a href="/financial-models" class="lnk" style="font-size: 11px; display: inline-block; margin-bottom: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">Download ↗</a>
                 </div>
-                <p class="pcard-body" style="margin-bottom: 12px;">
+                <p class="pcard-body">
                   The Excel model behind “Capex, Cash and the Multiple” (Oct 27, 2026). Three scenarios for 10-year revenue growth (12%, 15%, 20%), from ~$365 to ~$915 a share today, with a range rather than a point estimate. A handful of assumptions drive the value; change them and the results update. Defaults deduct the AG settlement accrual and include the Oct 26 offerings; switches return the piece’s figures.
                 </p>
               </div>
@@ -1155,6 +1155,10 @@ import MainLayout from '../layouts/MainLayout.astro';
 
   .no-dividers .project-item {
     border-bottom: none;
+  }
+
+  .no-dividers .project-title-row:last-child {
+    margin-bottom: 0;
   }
 
   .project-item:last-child {
